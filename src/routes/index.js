@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Switch } from 'react-router-dom';
 import Route from './Route';
 import Landing from '../pages/Landing';
+import Store from '../pages/Store';
+import Musings from '../pages/Musings';
 import SignInPage from '../pages/SignIn';
 import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
@@ -13,7 +15,8 @@ class Routes extends Component {
     return (
       <Switch>
           <Route path="/"  exact component={Landing} />
-
+          <Route path='/store' component={Store} />
+          <Route path='/musings' component={Musings} />
           <Route 
             path="/signin" 
             render = {(props) => <SignInPage {...props}

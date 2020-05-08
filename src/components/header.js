@@ -14,6 +14,12 @@ class Header extends Component {
 
                     <div className='headerLinksContainer'>
                         <li className='headerLinkItem'> 
+                            <Link to="/store" className='headerLink'>Store</Link>
+                        </li>
+                        <li className='headerLinkItem'> 
+                            <Link to="/musings" className='headerLink'>Musings</Link>
+                        </li>
+                        <li className='headerLinkItem'> 
                             <Link to="/signin" className='headerLink'>Sign In</Link>
                         </li>
                         <li className='headerLinkItem'> 
