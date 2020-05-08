@@ -21,8 +21,10 @@
 ###   -Signing in to server via localhost:3000 
 ####       - Sign in page is good. No additional work needed here.
 ####       (this is the default landing page for now...Can change this in /src/routes/index.js)
+###   -Mobile menu and link routing
 
 
 # To - Do:
-###  Deploy to Heroku
+###  
+
 
