@@ -13,16 +13,20 @@ class App extends Component {
       isRegistered: false,
       loginError: false,
       isAuthenticated: false,
-      user_ID: null
+      user_ID: null,
+      loginMenuVisible: false
     }
     this.handleSignInChange = this.handleSignInChange.bind(this);
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
     this.onLoginSubmit = this.onLoginSubmit.bind(this);
+    this.onLogoutClick = this.onLogoutClick.bind(this);
     this.setCookie = this.setCookie.bind(this);
     this.setCookieID = this.setCookieID.bind(this);
     this.getCookie = this.getCookie.bind(this);
     this.getCookieID = this.getCookieID.bind(this);
     this.checkCookie = this.checkCookie.bind(this);
+    this.toggleLoginMenu = this.toggleLoginMenu.bind(this);
+    this.closeLoginMenu = this.closeLoginMenu.bind(this);
   }
 
 
@@ -109,6 +113,21 @@ class App extends Component {
       // this.createUserImageIDArray();
   }
 
+  // logs user out
+  onLogoutClick() {
+    // sets current cookie to expired
+    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "idName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+    this.setState({
+      isAuthenticated: false,
+      log_email: '',
+      user_ID: '', 
+      loginError: false
+    }) 
+    this.toggleLoginMenu();
+  }
+
   
   // create a user cookie
   setCookie(cname, cvalue, exdays) {
@@ -184,12 +203,89 @@ class App extends Component {
     }
   }
 
+  // toggles the menu on click
+  toggleLoginMenu() {
+    let loginMenu = document.getElementById('dd-login-menu');
+    let loginOptions = document.getElementById('login-options');
+    let userOptions = document.getElementById('user-options')
+    // user not authenticated
+    if (!this.state.isAuthenticated) {
+      if (this.state.loginMenuVisible === false) {
+          this.setState({
+              loginMenuVisible: true
+          })
+          loginMenu.classList.remove('hide');
+          loginMenu.classList.add('show');
+          loginOptions.classList.remove('hide');
+          loginOptions.classList.add('show');
+      }
+      else if (this.state.loginMenuVisible === true) {
+          this.setState({
+              loginMenuVisible: false
+          })
+          loginMenu.classList.remove('show');
+          loginMenu.classList.add('hide');
+          loginOptions.classList.remove('show');
+          loginOptions.classList.add('hide');
+      } 
+  // user authenticated
+  }else if (this.state.isAuthenticated) {
+      if (this.state.loginMenuVisible && this.state.showUserCard) {
+        this.setState({
+          loginMenuVisible: false
+        })
+        loginMenu.classList.add('hide');
+        loginMenu.classList.remove('show');
+        userOptions.classList.remove('show');;
+        userOptions.classList.add('hide');
+      }
+      else if (this.state.loginMenuVisible === false) {
+        this.setState({
+            loginMenuVisible: true
+        })
+        loginMenu.classList.remove('hide');
+        loginMenu.classList.add('show');
+        userOptions.classList.remove('hide');
+        userOptions.classList.add('show');
+    }
+    else if (this.state.loginMenuVisible === true) {
+        this.setState({
+            loginMenuVisible: false
+        })
+        loginMenu.classList.remove('show');
+        loginMenu.classList.add('hide');
+        userOptions.classList.remove('show');
+        userOptions.classList.add('hide');
+    } 
+  }
+  }
+
+  // closes menu when user mouses out
+  closeLoginMenu() {
+    let loginMenu = document.getElementById('dd-login-menu');
+    let userOptions = document.getElementById('user-options')
+
+    this.setState({
+      loginMenuVisible: false
+    })
+    loginMenu.classList.add('hide');
+    loginMenu.classList.remove('show');
+    userOptions.classList.add('hide');
+    userOptions.classList.remove('show');;
+  }
+
 
 
   render() {
     return (
       <Router history={history}>
-        <Header />
+        <Header 
+          isAuthenticated = {this.state.isAuthenticated}
+          log_email = {this.state.log_email}
+          onLogoutClick = {this.onLogoutClick}
+          toggleLoginMenu = {this.toggleLoginMenu}
+          closeLoginMenu = {this.closeLoginMenu}
+        />
         <Routes 
           handleSignInChange = {this.handleSignInChange}
           onRegisterSubmit = {this.onRegisterSubmit}
