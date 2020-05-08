@@ -33,9 +33,9 @@ class Landing extends Component   {
                     <h1 className='landing-logo'>Bonsai</h1>
                 </div>
                 <div className='landing-text'>
-                    <p>Microdosing literally air plant fixie intelligentsia
+                    <p>Sartorial literally wayfarers chambray fixie intelligentsia
                         <br></br>
-                        Powered by your imagination.</p>
+                        Single-origin coffee mixtape leggings.</p>
                 </div>
                 <div className='landing-footer'>
                     <p className='copyright-symbol'>©<p></p> Copyright 2020 Spencer Jack</p>
