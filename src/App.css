@@ -2229,7 +2229,7 @@ hr {
   .dd-login-button {
     width: 41px;
     height: 41px;
-    margin-top: 5px;
+    margin-top: 7px;
     background-image: url('../src/img/mobile_menu.png');
     background-size: contain;
     cursor: pointer;
