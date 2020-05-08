@@ -9,7 +9,7 @@
 
 ###  2:   Open Terminal (for server side, Heroku)
 ####           cd into: Desktop/Project Router/ the one with routes/ server
-### #              'node index.js' 
+####              'node index.js' 
 
 
 # Working thus-far:
