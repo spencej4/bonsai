@@ -20,12 +20,34 @@ class Header extends Component {
                         <li className='headerLinkItem'> 
                             <NavLink to="/musings" className='headerLink' activeStyle={{color: "red"}}>Musings</NavLink>
                         </li>
-                        <li className='headerLinkItem'> 
-                            <NavLink to="/signin" className='headerLink' activeStyle={{color: "red"}}>Sign In</NavLink>
+                        {/* if user is not logged in */}
+                        {(!this.props.isAuthenticated) ? ( 
+                            <li className='headerLinkItem'> 
+                                <NavLink to="/signin" className='headerLink' activeStyle={{color: "red"}} 
+                                         onClick={() => this.props.clearAuthenticationErrors()}>Sign In
+                                </NavLink>
+                            </li>
+                        ) : null }
+                        {/* if user is not logged in */}
+                        {(!this.props.isAuthenticated) ? ( 
+                            <li className='headerLinkItem'> 
+                                <NavLink to="/register" className='headerLink' activeStyle={{color: "red"}}
+                                         onClick={() => this.props.clearAuthenticationErrors()}>Register</NavLink>
+                            </li>
+                        ) : null }
+                        {/* if user is logged in */}
+                        {(this.props.isAuthenticated) ? ( 
+                            <li className='headerLinkItem'> 
+                            <NavLink to="/user_info" className='headerLink' activeStyle={{color: "red"}}>User Info</NavLink>
                         </li>
-                        <li className='headerLinkItem'> 
-                            <NavLink to="/register" className='headerLink' activeStyle={{color: "red"}}>Register</NavLink>
+                        ) : null }
+                        {/* if user is logged in */}
+                        {(this.props.isAuthenticated) ? ( 
+                            <li className='headerLinkItem'> 
+                                <Link to="/" className='headerLink' onClick={() => this.props.onLogoutClick('desktop')}>Logout</Link>
                         </li>
+                        ) : null }
+
                     </div> 
                     
                     {/* mobile menu */}
@@ -61,11 +83,12 @@ class Header extends Component {
                                     </Link>
                                 </li>
                                 <hr></hr>
-                                {/* login necessary, link */}
+                                {/* login necessary, links */}
                                 {(!this.props.isAuthenticated) ? ( 
                                     <li className='login-option'>
                                         <Link to="/signin" className='headerLink' activeStyle={{color: "red"}}
-                                            onClick={() => this.props.closeLoginMenu()}>Sign In
+                                            onClick={() => { this.props.closeLoginMenu(); this.props.clearAuthenticationErrors()}}
+                                            >Sign In
                                         </Link>
                                     </li>
                                 ) : (null)} 
@@ -73,7 +96,8 @@ class Header extends Component {
                                 {(!this.props.isAuthenticated) ? ( 
                                     <li className='login-option'>
                                         <Link to="/register" className='headerLink' activeStyle={{color: "red"}}
-                                            onClick={() => this.props.closeLoginMenu()}>Register
+                                            onClick={() => { this.props.closeLoginMenu(); this.props.clearAuthenticationErrors()}}
+                                            >Register
                                         </Link>
                                     </li>
                                 ) : (null)}  
@@ -114,7 +138,10 @@ class Header extends Component {
                             <hr></hr>
                              
                             {(this.props.isAuthenticated) ? ( 
-                                <li className='login-option' onClick={() => this.props.onLogoutClick()}>Logout</li>
+                                <li className='login-option' onClick={() => this.props.onLogoutClick('mobile')}>
+                                    <Link to='/'>Logout</Link>
+                                </li>
+
                             ) : (null)}
                         </ul>
                     </div> 

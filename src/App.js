@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       isRegistered: false,
       loginError: false,
+      registerError: false,
       isAuthenticated: false,
       user_ID: null,
       loginMenuVisible: false
@@ -19,6 +20,7 @@ class App extends Component {
     this.handleSignInChange = this.handleSignInChange.bind(this);
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
     this.onLoginSubmit = this.onLoginSubmit.bind(this);
+    this.clearAuthenticationErrors = this.clearAuthenticationErrors.bind(this);
     this.onLogoutClick = this.onLogoutClick.bind(this);
     this.setCookie = this.setCookie.bind(this);
     this.setCookieID = this.setCookieID.bind(this);
@@ -35,7 +37,9 @@ class App extends Component {
   handleSignInChange(event) {
     event.preventDefault();
     this.setState({ 
-      [event.target.name]: event.target.value 
+      [event.target.name]: event.target.value,
+      loginError: false,
+      registerError: false,
     });
   }
 
@@ -46,7 +50,9 @@ class App extends Component {
 
     // confirms that user typed same password twice
     if (this.state.password !== this.state.password_confirm) {
-      alert("The passwords doesn't match")
+      this.setState({
+        registerError: true
+      })
     } else {
         fetch('/api/register',{
               method: 'POST',
@@ -62,6 +68,13 @@ class App extends Component {
                 content: []
               }) 
         }).then(function(response){
+          // could not register user
+          if (response.status !== 200) {
+            this.setState({
+              // for alerting user of authentiation issue
+              registerError: true
+            })
+          }
           return response.json();
         }).then(function(data){
           this.setState({ 
@@ -113,8 +126,9 @@ class App extends Component {
       // this.createUserImageIDArray();
   }
 
+
   // logs user out
-  onLogoutClick() {
+  onLogoutClick(caller) {
     // sets current cookie to expired
     document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "idName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -125,7 +139,17 @@ class App extends Component {
       user_ID: '', 
       loginError: false
     }) 
-    this.toggleLoginMenu();
+    if (caller === 'mobile') {
+      this.toggleLoginMenu();
+    }
+  }
+
+  // clears sign in and register errors from state 
+  clearAuthenticationErrors() {
+    this.setState({
+      loginError: false,
+      registerError: false
+    })
   }
 
   
@@ -283,16 +307,20 @@ class App extends Component {
           isAuthenticated = {this.state.isAuthenticated}
           log_email = {this.state.log_email}
           onLogoutClick = {this.onLogoutClick}
+          clearAuthenticationErrors = {this.clearAuthenticationErrors}
           toggleLoginMenu = {this.toggleLoginMenu}
           closeLoginMenu = {this.closeLoginMenu}
+
         />
         <Routes 
           handleSignInChange = {this.handleSignInChange}
           onRegisterSubmit = {this.onRegisterSubmit}
+          registerError = {this.state.registerError}
           isRegistered = {this.state.isRegistered}
           onLoginSubmit = {this.onLoginSubmit}
-          isAuthenticated = {this.state.isAuthenticated}
           loginError = {this.state.loginError}
+          isAuthenticated = {this.state.isAuthenticated}
+          clearAuthenticationErrors = {this.clearAuthenticationErrors}
         />
       </Router>
     );

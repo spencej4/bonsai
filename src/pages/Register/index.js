@@ -12,20 +12,24 @@ class RegisterPage extends Component {
                     <RegisterForm
                         onRegisterSubmit={this.props.onRegisterSubmit}
                         handleSignInChange={this.props.handleSignInChange}
+                        registerError= {this.props.registerError}
                     ></RegisterForm>
-                ): (<RegisteredMessage></RegisteredMessage>)}
+                ): (<RegisteredMessage /> )}
 
-                <div className='register right'>
-                    <div className='sign-in-title'>Sign In</div>
-                    <div className='float-right-sign-in-page-container'>
-                        <Link to="/signin">
-                            <button type="button"
-                                    className='action-btn'>
-                                Sign In
-                            </button>
-                        </Link>
+                { !this.props.isRegistered ? (
+                    <div className='register right'>
+                        <div className='sign-in-title'>Sign In</div>
+                        <div className='float-right-sign-in-page-container'>
+                            <Link to="/signin">
+                                <button type="button"
+                                        className='action-btn'
+                                        onClick = {this.props.clearAuthenticationErrors}>
+                                    Sign In
+                                </button>
+                            </Link>
+                        </div>
                     </div>
-                </div>
+                ) : null }
             </div>
         )
     }

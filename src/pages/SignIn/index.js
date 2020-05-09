@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SignInForm from './SignInForm';
 import LoggedInMessage from './LoggedInMessage';
+import RegisteredMessage from '../Register/RegisteredMessage';
 
 class SignInPage extends Component {
     render() {
@@ -18,17 +19,21 @@ class SignInPage extends Component {
                                         // onViewCollectionClick={this.props.onViewCollectionClick}
                                      >
                                     </LoggedInMessage>}
-                <div className='register right'>
-                    <div className='sign-in-title'>Register</div>
-                    <div className='float-right-sign-in-page-container'>
-                        <Link to="/register">
-                            <button type="button"
-                                    className='action-btn'>
-                                Register
-                            </button>
-                        </Link>
+
+                { (!this.props.isAuthenticated) ?  (                 
+                    <div className='register right'>
+                        <div className='sign-in-title'>Register</div>
+                        <div className='float-right-sign-in-page-container'>
+                            <Link to="/register">
+                                <button type="button"
+                                        className='action-btn'
+                                        onClick = {this.props.clearAuthenticationErrors}>
+                                    Register
+                                </button>
+                            </Link>
+                        </div>
                     </div>
-                </div>
+                ) : (<RegisteredMessage /> )}
             </div>
         )
     }

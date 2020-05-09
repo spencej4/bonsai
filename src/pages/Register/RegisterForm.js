@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import RegisterErrorMessage from './RegisterErrorMessage';
+
 
 
 class Register extends Component {
@@ -57,6 +59,12 @@ class Register extends Component {
                             />
                         </label>
                     </div>
+
+                    {/* alert user to register error */}
+                    { this.props.registerError ? 
+                            <RegisterErrorMessage />
+                    : null }
+
                     <div className='form-row'>
                         <button type='submit' className='submit-btn'>Register</button>
                     </div>

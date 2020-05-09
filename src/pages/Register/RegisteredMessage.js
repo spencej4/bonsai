@@ -4,7 +4,7 @@ class RegisteredMessage extends Component {
     
     render() {
         return (
-            <div className='sign-in left'>
+            <div className='register-success'>
                 <div className='sign-in-title'>Thanks! You're registered.</div>
             </div>
         )

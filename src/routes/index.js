@@ -4,6 +4,7 @@ import Route from './Route';
 import Landing from '../pages/Landing';
 import Store from '../pages/Store';
 import Musings from '../pages/Musings';
+import UserInfo from '../pages/UserInfo';
 import SignInPage from '../pages/SignIn';
 import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
@@ -17,12 +18,14 @@ class Routes extends Component {
           <Route path="/"  exact component={Landing} />
           <Route path='/store' component={Store} />
           <Route path='/musings' component={Musings} />
+          <Route path='/user_info' component={UserInfo} />
           <Route 
             path="/signin" 
             render = {(props) => <SignInPage {...props}
                                     handleSignInChange = {this.props.handleSignInChange}
                                     onLoginSubmit = {this.props.onLoginSubmit}
                                     loginError = {this.props.loginError}
+                                    clearAuthenticationErrors = {this.props.clearAuthenticationErrors}
                                     isAuthenticated = {this.props.isAuthenticated}
                                   />
                       }
@@ -33,6 +36,8 @@ class Routes extends Component {
             render = {(props) => <Register {...props} 
                                     handleSignInChange = {this.props.handleSignInChange}
                                     onRegisterSubmit = {this.props.onRegisterSubmit}
+                                    registerError = {this.props.registerError}
+                                    clearAuthenticationErrors = {this.props.clearAuthenticationErrors}
                                     isRegistered = {this.props.isRegistered} 
                                 />
                     }

@@ -173,7 +173,9 @@ button:focus {
   height: 100vh;
   margin-top: 350px;
   text-align: center;
+  color: grey;
   font-size: 28px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .inputContainer {
@@ -291,9 +293,11 @@ a {
 }
 
 .form-error {
-  top: 180px;
+  /* top: 180px;
   left: 10%;
-  position: absolute;
+  position: absolute; */
+  top: 0;
+  position: relative;
   line-height: 25px;
 }
 
@@ -852,7 +856,7 @@ hr {
     width: 100vw;
     height: 100%;
     top: 0;
-    margin-top: 9%;
+    margin-top: 100px;
     display: block;
     position: absolute;
     content: contain;
@@ -875,11 +879,23 @@ hr {
   .sign-in-success {
    width: 48%;
    height: 100%;
+   padding-top: 250px;
    display: inline-block;
-   border-right: 1px solid #d9d9d9;
+   /* border-right: 1px solid #d9d9d9; */
    background-color: white;
    text-align: center;
    color: grey;
+  }
+
+  .register-success {
+    width: 48%;
+    height: 100%;
+    padding-top: 250px;
+    display: inline-block;
+    /* border-right: 1px solid #d9d9d9; */
+    background-color: white;
+    text-align: center;
+    color: grey;
   }
 
   .view-collection-button-container {
@@ -1131,7 +1147,7 @@ hr {
   }
 
   .landing {
-    top: 0;
+    top: 58px;
     width: 100%;
     height: 644px;
     background-image: url('../src/img/succulent.jpeg');
@@ -1676,9 +1692,20 @@ hr {
     letter-spacing: 8px;
   }
 
-  /* .App {
-    padding-top: 20px;
-  } */
+  .header {
+    height: 40px;
+  }
+  
+  .logo {
+    width: 25%;
+    height: 10%;
+    position: absolute;
+    top: 25%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    margin: 0px 0px 0px 0px;
+    display: block;
+  }
 
   .landing-overlay {
     width: 100%;
@@ -1694,7 +1721,7 @@ hr {
     background-image: url('../src/img/succulent.jpeg');
     background-position:  center; 
     background-repeat: no-repeat;
-    opacity: 0.95;
+    opacity: 0.9;
     overflow: hidden;
     z-index: 1;
     top: 45px;
@@ -1861,8 +1888,13 @@ hr {
     display: none;
   }
 
+  .left {
+    float: none;
+    left: 0;
+  }
+
   .dd-login-menu {
-    top: 57px;
+    top: 52px;
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -1936,7 +1968,7 @@ hr {
   }
 
   .sign-in-page {
-    top: 0;
+    top: 28px;
     width: 100%;
     height: 100%;
     padding-top: 17%;
@@ -1951,7 +1983,8 @@ hr {
 
   .sign-in {
     width: 100%;
-    height: 57%;
+    height: auto;
+    margin-bottom: 40px;
     display: block;
     border-right: 1px solid grey;
     background-color: white;
@@ -1959,9 +1992,22 @@ hr {
   }
 
   .sign-in-success {
+    top: 30%;
     width: 100%;
     height: 20%;
     display: block;
+    position: absolute;
+    background-color: white;
+    text-align: center;
+    color: grey;
+  }
+
+  .register-success {
+    top: 30%;
+    width: 100%;
+    height: 20%;
+    display: block;
+    position: absolute;
     background-color: white;
     text-align: center;
     color: grey;
@@ -2218,28 +2264,29 @@ hr {
   
   .dd-login-title {
     top: 0;
-    right: 0;
-    width: 60px;
-    height: 57px;
+    right: 4px;
+    width: 53px;
+    height: 40px;
     display: inline-block;
     position: absolute;
     z-index: 2;
   }
   
   .dd-login-button {
-    width: 41px;
-    height: 41px;
-    margin-top: 7px;
+    width: 39px;
+    height: 39px;
+    margin-top: 6px;
     background-image: url('../src/img/mobile_menu.png');
     background-size: contain;
     cursor: pointer;
+    background-repeat: no-repeat;
     z-index: 1;
   }
 
   .dd-login-button-logged-in {
-    width: 41px;
-    height: 41px;
-    margin-top: 5px;
+    width: 39px;
+    height: 39px;
+    margin-top: 6px;
     background-image: url('../src/img/mobile_menu.png');
     background-size: contain;
     cursor: pointer;
@@ -2247,9 +2294,17 @@ hr {
   }
 
   .form-error {
-    top: 154px;
-    left: 22%;
-    position: absolute;
+    top: 0;
+    left: 0;
+    position: relative;
+    text-align: center;
+  }
+
+  .register-error {
+    top: 0;
+    left: 0;
+    position: relative;
+    text-align: center;
   }
 
   .emptyCollectionMessage {
@@ -2345,10 +2400,10 @@ hr {
     z-index: 1;
   }
 
-  .left {
+  /* .left {
     float: left;
     left: 10%;
-  }
+  } */
 
   .right {
     float: right;

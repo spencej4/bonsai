@@ -43,7 +43,7 @@ class SignInForm extends Component {
                         </div>
 
                         { this.props.loginError ? 
-                            <SignInErrorMessage></SignInErrorMessage>
+                            <SignInErrorMessage/>
                         : null }
 
                         <div className='form-row'>
