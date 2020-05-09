@@ -17,6 +17,7 @@ class App extends Component {
       user_ID: null,
       loginMenuVisible: false
     }
+    this.scrollWindow = this.scrollWindow.bind(this);
     this.handleSignInChange = this.handleSignInChange.bind(this);
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
     this.onLoginSubmit = this.onLoginSubmit.bind(this);
@@ -31,7 +32,10 @@ class App extends Component {
     this.closeLoginMenu = this.closeLoginMenu.bind(this);
   }
 
-
+  // scroll window to the top
+  scrollWindow() {
+    window.scrollTo(0, 0);
+  }
 
   //sets state to input value of sign-in/ register fields
   handleSignInChange(event) {
@@ -77,6 +81,7 @@ class App extends Component {
           }
           return response.json();
         }).then(function(data){
+          this.scrollWindow();
           this.setState({ 
             isRegistered: true 
           });
@@ -114,6 +119,7 @@ class App extends Component {
         return response.json();
       }.bind(this))
       .then(function(data){
+          this.scrollWindow();
           this.setState({
             isAuthenticated: true,
             user_ID: data
@@ -143,6 +149,7 @@ class App extends Component {
       this.toggleLoginMenu();
     }
   }
+
 
   // clears sign in and register errors from state 
   clearAuthenticationErrors() {
@@ -227,6 +234,7 @@ class App extends Component {
     }
   }
 
+
   // toggles the menu on click
   toggleLoginMenu() {
     let loginMenu = document.getElementById('dd-login-menu');
@@ -283,6 +291,7 @@ class App extends Component {
     } 
   }
   }
+
 
   // closes menu when user mouses out
   closeLoginMenu() {
