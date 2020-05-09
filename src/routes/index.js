@@ -27,6 +27,7 @@ class Routes extends Component {
                                     loginError = {this.props.loginError}
                                     clearAuthenticationErrors = {this.props.clearAuthenticationErrors}
                                     isAuthenticated = {this.props.isAuthenticated}
+                                    log_email = {this.props.log_email}
                                   />
                       }
           />
@@ -39,6 +40,7 @@ class Routes extends Component {
                                     registerError = {this.props.registerError}
                                     clearAuthenticationErrors = {this.props.clearAuthenticationErrors}
                                     isRegistered = {this.props.isRegistered} 
+                                    email = {this.props.email}
                                 />
                     }
           />

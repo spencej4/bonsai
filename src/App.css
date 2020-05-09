@@ -879,18 +879,17 @@ hr {
   .sign-in-success {
    width: 48%;
    height: 100%;
-   padding-top: 250px;
+   padding-top: 240px;
    display: inline-block;
-   /* border-right: 1px solid #d9d9d9; */
    background-color: white;
    text-align: center;
    color: grey;
   }
 
   .register-success {
-    width: 48%;
-    height: 100%;
-    padding-top: 250px;
+    width: 100vw;
+    /* height: 100%; */
+    padding-top: 240px;
     display: inline-block;
     /* border-right: 1px solid #d9d9d9; */
     background-color: white;
@@ -914,6 +913,13 @@ hr {
     font-size: 28px;
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
+  }
+
+  .sign-in-userID {
+    margin-top: 25px;
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: lowercase;
   }
 
   #sign-in-form {
@@ -977,8 +983,17 @@ hr {
     background-color: rgba(230, 127, 209, 1 );
   }
 
-  .register{
+  .register {
     width: 48%;
+    height: 100%;
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    color: grey;
+  }
+
+  .register-with-signin-button {
+    width: 30%;
     height: 100%;
     display: inline-block;
     background-color: white;
@@ -997,6 +1012,16 @@ hr {
     text-align: center;
   }
 
+  .centered-button-container {
+    top: 0;
+    width: 100%;
+    padding: 0 0 0 0;
+    height: auto;
+    position: relative;
+    align-items: center;
+    text-align: center;
+  }
+
   .action-btn {
     width: 100%;
     height: 45px;
@@ -1010,6 +1035,24 @@ hr {
   }
 
   .action-btn:hover {
+    border: 1px solid rgba(230, 127, 209, 1 );
+    color: rgba(230, 127, 209, 1);
+  }
+
+  .signin-after-registering-btn {
+    width: 30vw;
+    height: 45px;
+    margin-top: 48px;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: background-color .2s ease-in-out,border .2s ease-in-out,color .2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .signin-after-registering-btn:hover {
     border: 1px solid rgba(230, 127, 209, 1 );
     color: rgba(230, 127, 209, 1);
   }
@@ -2003,14 +2046,27 @@ hr {
   }
 
   .register-success {
-    top: 30%;
+    top: 23%;
     width: 100%;
-    height: 20%;
-    display: block;
-    position: absolute;
+    height: 50px;
+    display: inline-block;
+    position: relative;
     background-color: white;
     text-align: center;
     color: grey;
+  }
+
+  .register-with-signin-button {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    color: grey;
+  }
+
+  .centered-button-container {
+    margin-top: 250px;
   }
 
   .view-collection-button-container {
@@ -2029,6 +2085,13 @@ hr {
     font-size: 28px;
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
+  }
+
+  .sign-in-userID {
+    margin-top: 25px;
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: lowercase;
   }
 
   #sign-in-form {
@@ -2128,6 +2191,24 @@ hr {
   }
 
   .action-btn:hover {
+    border: 1px solid rgba(230, 127, 209, 1 );
+    color: rgba(230, 127, 209, 1);
+  }
+
+  .signin-after-registering-btn {
+    width: 95vw;
+    height: 45px;
+    margin-top: 11px;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: background-color .2s ease-in-out,border .2s ease-in-out,color .2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .signin-after-registering-btn:hover {
     border: 1px solid rgba(230, 127, 209, 1 );
     color: rgba(230, 127, 209, 1);
   }

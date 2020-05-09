@@ -319,7 +319,6 @@ class App extends Component {
           clearAuthenticationErrors = {this.clearAuthenticationErrors}
           toggleLoginMenu = {this.toggleLoginMenu}
           closeLoginMenu = {this.closeLoginMenu}
-
         />
         <Routes 
           handleSignInChange = {this.handleSignInChange}
@@ -330,6 +329,8 @@ class App extends Component {
           loginError = {this.state.loginError}
           isAuthenticated = {this.state.isAuthenticated}
           clearAuthenticationErrors = {this.clearAuthenticationErrors}
+          log_email = {this.state.log_email}
+          email = {this.state.email}
         />
       </Router>
     );

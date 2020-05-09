@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SignInForm from './SignInForm';
 import LoggedInMessage from './LoggedInMessage';
-import RegisteredMessage from '../Register/RegisteredMessage';
 
 class SignInPage extends Component {
     render() {
@@ -15,6 +14,7 @@ class SignInPage extends Component {
                         loginError= {this.props.loginError}
                         >
                     </SignInForm>) : <LoggedInMessage
+                                        log_email = {this.props.log_email}
                                         // can add call to action button here...
                                         // onViewCollectionClick={this.props.onViewCollectionClick}
                                      >
@@ -33,7 +33,8 @@ class SignInPage extends Component {
                             </Link>
                         </div>
                     </div>
-                ) : (<RegisteredMessage /> )}
+                // ) : (<RegisteredMessage /> )}
+                    ) : null }
             </div>
         )
     }

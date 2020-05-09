@@ -14,7 +14,7 @@ class RegisterPage extends Component {
                         handleSignInChange={this.props.handleSignInChange}
                         registerError= {this.props.registerError}
                     ></RegisterForm>
-                ): (<RegisteredMessage /> )}
+                ): (<RegisteredMessage email = {this.props.email}/> )}
 
                 { !this.props.isRegistered ? (
                     <div className='register right'>
@@ -30,6 +30,20 @@ class RegisterPage extends Component {
                         </div>
                     </div>
                 ) : null }
+
+                { this.props.isRegistered ? (
+                    <div className='register-with-signin-button'>
+                    <div className='centered-button-container'>
+                        <Link to="/signin">
+                            <button type="button"
+                                    className='signin-after-registering-btn'
+                                    onClick = {this.props.clearAuthenticationErrors}>
+                                Sign In
+                            </button>
+                        </Link>
+                    </div>
+                </div>
+                ) : null}
             </div>
         )
     }
