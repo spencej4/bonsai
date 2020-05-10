@@ -11,6 +11,9 @@ const app = express();
 app.set('port', (process.env.PORT || 4000));
 app.use(cors());
 
+// updates deprecation, eliminates server side error message in terminal console
+mongoose.set('useCreateIndex', true);
+
 //this is our MongoDB database
 const dbRoute = "mongodb://Admin:Level_2020@ds255332.mlab.com:55332/heroku_f3scbbgf";
 

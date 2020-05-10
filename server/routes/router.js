@@ -120,4 +120,5 @@ router.get('/users', function (request, response) {
   User.findAll();
 })
 
+
 module.exports = router;

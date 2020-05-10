@@ -48,7 +48,7 @@ UserSchema.statics.authenticate = function (email, password, callback) {
     });
 }
 
-
+// retrieve content for a given user
 UserSchema.statics.getUserContent = function (email, callback) {
   User.findOne({ email: email })
     .exec(function (err, user) {

@@ -133,6 +133,10 @@ button:focus {
   font-weight: 100;
 }
 
+.active {
+  color: red;
+}
+
 /* .header li {
   list-style: none;
   text-decoration: none;
@@ -396,133 +400,83 @@ hr {
   border: 1px solid lightgrey;
   opacity: 0.4;
 }
-
-.headerSearch {
+/* ===================================STORE=================================== */
+.store-container {
+  margin: 130px 30px 0 30px;
   width: 100vw;
-  height: 40px;
-  top: -10px;
-  left: 0;
-  display: block;
-  position: absolute;
-  content: contain;
+  height: 100vh;
   text-align: left;
-  color: #fff;
-  z-index: 3;
 }
 
-.searchBar {
-  width: 93%;
-  height: 33px;
-  margin: 14px 2px 0 2px;
-  padding-bottom: 6px;
-  line-height: 1em;
-  display: block;
-  position: relative;
-  z-index: 11;
-  border: 1px solid white;
-  border-radius: 20px;
+.product-list-item {
+  list-style: none;
+  display: inline-block;;
 }
 
-.body-container{
-  width: 100%;
-  height: 100%;
-  position: relative
-}
-
- .wrapperDiv {
-  height: 100%;
-  padding-left: 5px;
-  padding-right: 5px;
-  display: block;
-  position: relative;
-  text-align: center;
-  margin: 18% auto 0 auto;
-  padding: 0 10px;
-  -webkit-column-count: 2;
-  -webkit-column-gap: 5px;
-  -moz-column-count: 2;
-  -moz-column-gap: 5px;
-  column-count: 2;
-  column-gap: 5px;
-} 
-
-/* silenced 04/23/20 */
-.imgSmallOverlay {
-  width: 250px; 
-  height: 250px;
-  position: relative;
-  vertical-align: top;
-  opacity: 0.4;
-  z-index: 10;
-}
-
-.imgSmall {
-  width: auto; 
-  height: auto;
-  position: relative;
-  vertical-align: top;
-}
-
-.imgSmall:first-of-type {
-  margin-top: 0px;
-}
-
-/* .imgSmall:hover {
-  opacity: 0.8;
-} */
-
-.landscape {
-  width: 100%;
-  height: auto;
+.product-container {
+  margin: 10px 10px 10px 10px;
+  width: 430px;
+  height: 200px;
   display: inline-block;
-  /* give mobile images margins here */
-  /* margin: 0; */
-}
-
-.portrait {
-  width: 100%;
-  height: auto;
-  display: inline-block;
-  /* give mobile images margins here */
-  /* margin: 0; */
-}
-
-#fullScreen {
-  width: 100vw;
-  height: 100%;
-  display: block;
-  top: 2%;
-  left: 0;
-  position: fixed;
-  z-index: 1;
-  background-color: rgba(39, 39, 39, 0.90);
-  text-align: center;
-}
-
-.fullScreenImage {
-  width: auto;
-  height: 100%;
-  margin: 0 auto;
-  top: 0;
-  display: block;
-  position: relative;
-  z-index: 1;
-}
-
-.closeFullScreenButton {
-  top: 0;
-  right: -5px;
-  float: right;
-  display: block;
-  position: relative;
-  color: white;
-  background: none;
-  border: none;
+  border: 1px solid lightgrey;
+  transition: background-color 0.5s ease;
+  background-color: lightgrey;
   cursor: pointer;
-  font-size: 2em;
-  font-weight: 100;
-  z-index: 0;
+  border-radius: 5px;
 }
+
+.product-container:hover {
+  background-color: white;
+}
+
+.product-info {
+  width: 218px;
+  float: right;
+}
+
+.product-name {
+  font-size: 28px;
+  color: black;
+  display: inline-block;
+  z-index: 2;
+}
+
+.product-price {
+  font-size: 28px;
+  color: black;
+  z-index: 2;
+}
+
+.product-description {
+  width: 100%;
+  height: auto;
+  padding-top: 20px;
+  font-size: 16px;
+  color: black;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.product-image-container {
+  width: 200px;
+  height: 200px;
+  float: left;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* ===================================End of STORE=================================== */
+
+ 
+
+
+
+
 
 /* loading icon*/
 .lds-ellipsis {

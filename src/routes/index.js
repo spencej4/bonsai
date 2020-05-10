@@ -8,6 +8,7 @@ import UserInfo from '../pages/UserInfo';
 import SignInPage from '../pages/SignIn';
 import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
+import ViewProduct from '../pages/Store/ViewProduct';
 
 
 
@@ -16,11 +17,21 @@ class Routes extends Component {
     return (
       <Switch>
           <Route path="/"  exact component={Landing} />
-          <Route path='/store' component={Store} />
+          <Route path='/store/'
+            render = {(props) => <Store {...props}
+                                    products = {this.props.products}
+                                  />
+                      }
+          />
+          <Route path='/store/view_product/:product'
+            render = {(props) => <ViewProduct {...props}
+                                    currentProduct = {this.props.currentProduct}
+                                  />
+                      }
+          />
           <Route path='/musings' component={Musings} />
           <Route path='/user_info' component={UserInfo} />
-          <Route 
-            path="/signin" 
+          <Route path="/signin" 
             render = {(props) => <SignInPage {...props}
                                     handleSignInChange = {this.props.handleSignInChange}
                                     onLoginSubmit = {this.props.onLoginSubmit}
@@ -32,8 +43,7 @@ class Routes extends Component {
                       }
           />
 
-          <Route 
-            path="/register" 
+          <Route path="/register" 
             render = {(props) => <Register {...props} 
                                     handleSignInChange = {this.props.handleSignInChange}
                                     onRegisterSubmit = {this.props.onRegisterSubmit}

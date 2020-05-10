@@ -38,7 +38,7 @@ class Landing extends Component   {
                         Single-origin coffee mixtape leggings.</p>
                 </div>
                 <div className='landing-footer'>
-                    <p className='copyright-symbol'>©<p></p> Copyright 2020 Spencer Jack</p>
+                    <p className='copyright-symbol'>©</p><p>Copyright 2020 Spencer Jack</p>
                 </div>
                 </div>
           </div>

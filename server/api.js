@@ -1,6 +1,7 @@
 const express= require('express');
 const router = express.Router();
 const User =  require('./models/user.js');
+const Products = require('./models/products.js')
 
 //POST request for user registration
 router.post('/register', function(request, response){
@@ -41,83 +42,29 @@ router.post('/login', function(request, response, next){
 });
 
 
-// GETS request for user content
-router.get('/getUserContent/:user', function (request, response, next) {  
-  var user = request.params.user;
-  // console.log(`User request param from API: ${ user }`);
-
-  User.getUserContent(user, function (error, user, result) {
-    if (error || !user) {
-      var err = new Error('Wrong email or password.');
-      err.status = 401;
-      return next(err)
-    } else if (!user) {
-      var err = new Error('Collection not found.');
-      err.status = 401;
-      return callback(err);
-    }else {
-      response.json(user.content);
-      return response 
-    }
-  })
-})
-
-
-// PUT request for adding image to db
-// 'next' is a new param added 04/12/20
-router.put('/add-image', function (request, response) {
-  let email = request.body.email;
-  let image = request.body.image;
-  let smallImage = request.body.smallImage;
-  let imageID = request.body.imageID
-
-  console.log('===========================================================')
-  console.log(`imageID to add: ${imageID} (received by API)`);
-
-  User.add_image(email, image, smallImage, imageID, function(error, imageID) {
-    if (error || !imageID) {
-      var err = new Error('Problem adding photo to database');
-      err.status = 401;
-      return (err)
-    } else {
-        response.json(imageID);
-        console.log(`imageID added: ${imageID} (retrieved by API)`);
-        console.log('===========================================================')
-
-        // receives imageID response from user.js
-        // console.log(`response from within API: ${response}`);
-        return response 
-    }
-  })
-})
-
-
-//PUT request to delete image from db
-router.put('/delete-image', function (request, response) {
-  let email = request.body.email
-  let imageID = request.body.imageID;
-
-  console.log('===========================================================')
-  console.log(`imageID to delete: ${imageID} (received by API)`)
-
-  User.delete_image( email, imageID, function(error, photo_ID) {
-    if (error || !imageID) {
-      var err = new Error('Problem deleting photo from database');
-      err.status = 401;
-      return (err)
-    } else {
-        response.json(imageID);
-        console.log(`imageID deleted: ${imageID} (retrieved by API)`);
-        console.log('===========================================================')
-        return response;
-    }
-  });
-})
-
-
 // GET request to console log list of users in mongod terminal
 router.get('/users', function (request, response) {
   User.findAll();
+})
+
+// GET request to console log list of products in mongod terminal
+// ...works
+// router.get('/products', function (request, response) {
+//   Products.findAll();
+// })
+
+router.get('/products/:query', function (request, response) {
+  let query = request.params.query
+
+  Products.findAll(query, function(error, query){
+    if (error) {
+      var error = new Error("Error");
+      err.status = 404;
+    } else {
+      response.json(query)
+      return response
+    }
+  });
 })
 
 module.exports = router;

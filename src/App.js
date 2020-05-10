@@ -15,7 +15,10 @@ class App extends Component {
       registerError: false,
       isAuthenticated: false,
       user_ID: null,
-      loginMenuVisible: false
+      loginMenuVisible: false,
+      errorFetchingProducts: false,
+      products: [],
+      currentProduct: "Lilac Lilly"
     }
     this.scrollWindow = this.scrollWindow.bind(this);
     this.handleSignInChange = this.handleSignInChange.bind(this);
@@ -30,6 +33,7 @@ class App extends Component {
     this.checkCookie = this.checkCookie.bind(this);
     this.toggleLoginMenu = this.toggleLoginMenu.bind(this);
     this.closeLoginMenu = this.closeLoginMenu.bind(this);
+    this.getProducts = this.getProducts.bind(this);
   }
 
   // scroll window to the top
@@ -307,6 +311,42 @@ class App extends Component {
     userOptions.classList.remove('show');;
   }
 
+  getProducts() {  
+      let query = 'products';
+
+      this.setState({
+        products: []
+      })
+
+      fetch('/api/products/' + query,{
+            method: 'GET',
+            mode: "cors",
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            credentials: "same-origin"
+        }).then(response => response.json())
+        // get returned products from database
+        .then(response => {
+          let returnedData = response[0].products;
+            //iterate through return for products
+            for (var index in returnedData) {
+              this.setState({
+                //push each product to state array
+                products:  [...this.state.products, 
+                  {
+                    product: returnedData[index].product, 
+                    price: returnedData[index].price,
+                    description: returnedData[index].description,
+                    image: returnedData[index].image
+                  }
+                ]
+              })
+            }
+        }) 
+    }
+
 
 
   render() {
@@ -319,6 +359,7 @@ class App extends Component {
           clearAuthenticationErrors = {this.clearAuthenticationErrors}
           toggleLoginMenu = {this.toggleLoginMenu}
           closeLoginMenu = {this.closeLoginMenu}
+          getProducts = {this.getProducts}
         />
         <Routes 
           handleSignInChange = {this.handleSignInChange}
@@ -331,6 +372,8 @@ class App extends Component {
           clearAuthenticationErrors = {this.clearAuthenticationErrors}
           log_email = {this.state.log_email}
           email = {this.state.email}
+          products = {this.state.products}
+          currentProduct = {this.state.currentProduct}
         />
       </Router>
     );
