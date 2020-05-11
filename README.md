@@ -25,6 +25,7 @@
 
 
 # To - Do:
-###  
+###  -- Click a product div, redirect to new page with more info.
+###     -- must work with history
 
 

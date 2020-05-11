@@ -8,6 +8,7 @@ class Store extends Component {
       <div className='store-container'>
         <StoreContainer
           products = {this.props.products}
+          viewProduct = {this.props.viewProduct}
         />
       </div>
     )

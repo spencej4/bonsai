@@ -11,21 +11,26 @@ import Dashboard from '../pages/Dashboard';
 import ViewProduct from '../pages/Store/ViewProduct';
 
 
-
 class Routes extends Component {
   render() {
     return (
       <Switch>
-          <Route path="/"  exact component={Landing} />
-          <Route path='/store/'
+          <Route exact path="/" component={Landing} />
+          <Route exact path='/store/'
             render = {(props) => <Store {...props}
                                     products = {this.props.products}
+                                    viewProduct = {this.props.viewProduct}
                                   />
                       }
           />
+          {/* get this working... */}
+          {/* needs to get called by Project.js, when you click on a product div */}
           <Route path='/store/view_product/:product'
             render = {(props) => <ViewProduct {...props}
                                     currentProduct = {this.props.currentProduct}
+                                    currentProductPrice = {this.props.currentProductPrice}
+                                    currentProductDescription = {this.props.currentProductDescription}
+                                    currentProductImage = {this.props.currentProductImage}
                                   />
                       }
           />

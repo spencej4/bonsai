@@ -5,7 +5,6 @@ import history from './services/history';
 import Header from './components/header';
 import Routes from './routes';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +17,10 @@ class App extends Component {
       loginMenuVisible: false,
       errorFetchingProducts: false,
       products: [],
-      currentProduct: "Lilac Lilly"
+      currentProduct: null,
+      currentProductPrice: null,
+      currentProductDescription: null,
+      currentProductImage: null
     }
     this.scrollWindow = this.scrollWindow.bind(this);
     this.handleSignInChange = this.handleSignInChange.bind(this);
@@ -34,7 +36,11 @@ class App extends Component {
     this.toggleLoginMenu = this.toggleLoginMenu.bind(this);
     this.closeLoginMenu = this.closeLoginMenu.bind(this);
     this.getProducts = this.getProducts.bind(this);
+    this.viewProduct = this.viewProduct.bind(this);
   }
+
+
+  
 
   // scroll window to the top
   scrollWindow() {
@@ -311,6 +317,7 @@ class App extends Component {
     userOptions.classList.remove('show');;
   }
 
+
   getProducts() {  
       let query = 'products';
 
@@ -348,6 +355,14 @@ class App extends Component {
     }
 
 
+  viewProduct(product, price, description, image) {
+    this.setState({
+      currentProduct: product,
+      currentProductPrice: price,
+      currentProductDescription: description,
+      currentProductImage: image
+    })
+  }
 
   render() {
     return (
@@ -374,6 +389,11 @@ class App extends Component {
           email = {this.state.email}
           products = {this.state.products}
           currentProduct = {this.state.currentProduct}
+          currentProductPrice = {this.state.currentProductPrice}
+          currentProductDescription = {this.state.currentProductDescription}
+          currentProductImage = {this.state.currentProductImage}
+          viewProduct = {this.viewProduct}
+          history={history}
         />
       </Router>
     );

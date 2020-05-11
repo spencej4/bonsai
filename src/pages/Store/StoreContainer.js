@@ -8,13 +8,14 @@ class StoreContainer extends Component {
           return ( 
             <li key = {item.product.toString()}
                 className = 'product-list-item'>
-              <Product 
-                    key={item.id}
-                    product = {item.product}
-                    price = {item.price}   
-                    description = {item.description}   
-                    image = {item.image}
-              ></Product>
+                  <Product 
+                        key={item.id}
+                        product = {item.product}
+                        price = {item.price}   
+                        description = {item.description}   
+                        image = {item.image}
+                        viewProduct = {this.props.viewProduct}
+                  ></Product>
             </li>
           )
       })
