@@ -27,10 +27,15 @@ class Routes extends Component {
           {/* needs to get called by Project.js, when you click on a product div */}
           <Route path='/store/view_product/:product'
             render = {(props) => <ViewProduct {...props}
+                                    currentProduct_id = {this.props.currentProduct_id}
                                     currentProduct = {this.props.currentProduct}
                                     currentProductPrice = {this.props.currentProductPrice}
                                     currentProductDescription = {this.props.currentProductDescription}
                                     currentProductImage = {this.props.currentProductImage}
+                                    addProductToCart = {this.props.addProductToCart}
+                                    removeProductFromCart = {this.props.removeProductFromCart}
+                                    cart = {this.props.cart}
+                                    cartContains_id_array = {this.props.cartContains_id_array}
                                   />
                       }
           />

@@ -17,10 +17,14 @@ class App extends Component {
       loginMenuVisible: false,
       errorFetchingProducts: false,
       products: [],
+      currentProduct_id: null,
       currentProduct: null,
       currentProductPrice: null,
       currentProductDescription: null,
-      currentProductImage: null
+      currentProductImage: null,
+      cartQuantity: 0,
+      cart: [],
+      cartContains_id_array: []
     }
     this.scrollWindow = this.scrollWindow.bind(this);
     this.handleSignInChange = this.handleSignInChange.bind(this);
@@ -37,6 +41,8 @@ class App extends Component {
     this.closeLoginMenu = this.closeLoginMenu.bind(this);
     this.getProducts = this.getProducts.bind(this);
     this.viewProduct = this.viewProduct.bind(this);
+    this.addProductToCart = this.addProductToCart.bind(this);
+    this.removeProductFromCart = this.removeProductFromCart.bind(this);
   }
 
 
@@ -343,6 +349,7 @@ class App extends Component {
                 //push each product to state array
                 products:  [...this.state.products, 
                   {
+                    _id: returnedData[index]._id,
                     product: returnedData[index].product, 
                     price: returnedData[index].price,
                     description: returnedData[index].description,
@@ -352,17 +359,45 @@ class App extends Component {
               })
             }
         }) 
-    }
+  }
 
 
-  viewProduct(product, price, description, image) {
+  viewProduct(_id, product, price, description, image) {
     this.setState({
+      currentProduct_id: _id,
       currentProduct: product,
       currentProductPrice: price,
       currentProductDescription: description,
       currentProductImage: image
     })
   }
+
+
+  // adds product to cart
+  addProductToCart(_id, product, price, description, image) {
+    this.setState(prevState => ({
+      cart: [...prevState.cart, {_id: _id, product: product, price: price, description: description, image: image}],
+      cartQuantity: prevState.cartQuantity + 1,
+      cartContains_id_array: [...prevState.cartContains_id_array, _id]
+    }))
+  }
+
+  removeProductFromCart(_id) {
+    // console.log(_id); 
+    let filtered_cart = this.state.cart.filter(product => product._id !== _id);
+    let filtered_cart_id = this.state.cartContains_id_array.filter(product => product !== _id);
+    console.log(filtered_cart)
+    this.setState(prevState => ({
+      cart: filtered_cart,
+      cartContains_id_array: filtered_cart_id,
+      cartQuantity: prevState.cartQuantity - 1
+    }))
+  }
+
+  // removePeople(e) {
+  //   let filteredArray = this.state.people.filter(item => item !== e.target.value)
+  //   this.setState({people: filteredArray});
+  // }
 
   render() {
     return (
@@ -375,6 +410,7 @@ class App extends Component {
           toggleLoginMenu = {this.toggleLoginMenu}
           closeLoginMenu = {this.closeLoginMenu}
           getProducts = {this.getProducts}
+          cartQuantity = {this.state.cartQuantity}
         />
         <Routes 
           handleSignInChange = {this.handleSignInChange}
@@ -388,12 +424,17 @@ class App extends Component {
           log_email = {this.state.log_email}
           email = {this.state.email}
           products = {this.state.products}
+          cart = {this.state.cart}
+          currentProduct_id = {this.state.currentProduct_id}
           currentProduct = {this.state.currentProduct}
           currentProductPrice = {this.state.currentProductPrice}
           currentProductDescription = {this.state.currentProductDescription}
           currentProductImage = {this.state.currentProductImage}
           viewProduct = {this.viewProduct}
-          history={history}
+          history = {history}
+          addProductToCart = {this.addProductToCart}
+          removeProductFromCart = {this.removeProductFromCart}
+          cartContains_id_array = {this.state.cartContains_id_array}
         />
       </Router>
     );

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import { Link, NavLink } from 'react-router-dom';
+import cartImage from '../img/cart-icon.png';
 
 
 class Header extends Component {  
@@ -44,10 +45,16 @@ class Header extends Component {
                         ) : null }
                         {/* if user is logged in */}
                         {(this.props.isAuthenticated) ? ( 
-                            <li className='headerLinkItem'> 
-                                <Link to="/" className='headerLink' onClick={() => this.props.onLogoutClick('desktop')}>Logout</Link>
+                        <li className='headerLinkItem'> 
+                            <Link to="/" className='headerLink' onClick={() => this.props.onLogoutClick('desktop')}>Logout</Link>
                         </li>
                         ) : null }
+                        <li className='headerLinkItem cart-link'> 
+                            <Link to="/cart" className='headerLink'>
+                                <img className='cart-image' alt='cart icon' src={cartImage}></img>
+                                <span className='cart-quantity'>{this.props.cartQuantity}</span>
+                            Cart</Link>
+                        </li>
 
                     </div> 
                     

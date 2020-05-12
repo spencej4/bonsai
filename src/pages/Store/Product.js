@@ -6,7 +6,7 @@ class Product extends Component {
         return (
             <Link to={`/store/view_product/` + this.props.product}>
                 <div className='product-container'
-                    onClick={() => this.props.viewProduct(this.props.product, this.props.price, this.props.description, this.props.image)}>
+                    onClick={() => this.props.viewProduct(this.props._id, this.props.product, this.props.price, this.props.description, this.props.image)}>
                     <div className = 'product-info'>
                         <div className ='product-name'>{this.props.product}</div>
                         <div className ='product-price'>Price: ${this.props.price}</div>

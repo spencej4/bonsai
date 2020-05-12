@@ -9,6 +9,7 @@ class Store extends Component {
         <StoreContainer
           products = {this.props.products}
           viewProduct = {this.props.viewProduct}
+          addProductToCart = {this.props.addProductToCart}
         />
       </div>
     )

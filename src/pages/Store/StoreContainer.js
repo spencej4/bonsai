@@ -9,7 +9,8 @@ class StoreContainer extends Component {
             <li key = {item.product.toString()}
                 className = 'product-list-item'>
                   <Product 
-                        key={item.id}
+                        key = {item.id}
+                        _id = {item._id}
                         product = {item.product}
                         price = {item.price}   
                         description = {item.description}   
