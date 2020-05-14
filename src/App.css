@@ -213,6 +213,7 @@ button:focus {
   font-family: 'Oswald', sans-serif;
 }
 
+
 .inputContainer {
   width: 100%;
   height: auto;
@@ -592,9 +593,85 @@ hr {
 
 /* ===================================End of STORE=================================== */
 
- 
 
+/* ===================================== CART ======================================= */
+.cart-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 138px 18px 0 100px;
+}
 
+.cart-list-item {
+  list-style: none;
+}
+
+.cart-product-container {
+  width: 60vw;
+  height: 150px;
+  padding-top: 20px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.cart-image-container {
+  width: 142px;
+  height: 157px;
+  overflow: hidden;
+  float: left;
+}
+
+.cart-product-image {
+  width: 142px;
+  height: 157px;
+  object-fit: cover;
+}
+
+.cart-product-info-container {
+  width: 80%;
+  height: 150px;
+  float: right;
+  /* display: inline-block; */
+}
+
+.cart-product-name {
+  font-size: 30px;
+  color: black;
+  display: inline-block;
+}
+
+.cart-product-price {
+  font-size: 28px;
+  color: black;
+}
+
+.cart-product-description {
+  width: 381px;
+  height: 60px;
+  padding-top: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+  color: black;
+  z-index: 2;
+  float: left;
+  overflow-wrap: break-word
+}
+
+.cart-remove-from-cart-button {
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgba(255, 0, 127, 0.5);
+  border: none;
+  font-size: 20px;
+  color: #FFF;
+  float: right;
+  cursor: pointer;
+}
+
+.cart-remove-from-cart-button:hover {
+  background-color: rgba(255, 0, 127, 0.8);
+}
+/* ================================== End of CART =================================== */
 
 
 

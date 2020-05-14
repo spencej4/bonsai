@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import StoreContainer from './StoreContainer';
-// import Product from './Product';
 
 class Store extends Component {
   render() {

@@ -9,6 +9,7 @@ import SignInPage from '../pages/SignIn';
 import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
 import ViewProduct from '../pages/Store/ViewProduct';
+import Cart from '../pages/Cart';
 
 
 class Routes extends Component {
@@ -23,8 +24,6 @@ class Routes extends Component {
                                   />
                       }
           />
-          {/* get this working... */}
-          {/* needs to get called by Project.js, when you click on a product div */}
           <Route path='/store/view_product/:product'
             render = {(props) => <ViewProduct {...props}
                                     currentProduct_id = {this.props.currentProduct_id}
@@ -63,6 +62,16 @@ class Routes extends Component {
                                     email = {this.props.email}
                                 />
                     }
+          />
+          <Route exact path='/cart/'
+            render = {(props) => <Cart {...props}
+                                    products = {this.props.products}
+                                    viewProduct = {this.props.viewProduct}
+                                    cart={this.props.cart}
+                                    cartContains_id_array = {this.props.cartContains_id_array}
+                                    removeProductFromCart = {this.props.removeProductFromCart}
+                                  />
+                      }
           />
 
           <Route path="/dashboard" component={Dashboard} isPrivate />
