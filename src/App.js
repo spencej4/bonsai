@@ -24,6 +24,7 @@ class App extends Component {
       currentProductImage: null,
       cartQuantity: 0,
       cart: [],
+      cartSubtotal: 0,
       cartContains_id_array: []
     }
     this.scrollWindow = this.scrollWindow.bind(this);
@@ -43,6 +44,7 @@ class App extends Component {
     this.viewProduct = this.viewProduct.bind(this);
     this.addProductToCart = this.addProductToCart.bind(this);
     this.removeProductFromCart = this.removeProductFromCart.bind(this);
+    this.calculateCartSubtotal = this.calculateCartSubtotal.bind(this);
   }
 
 
@@ -380,24 +382,37 @@ class App extends Component {
       cartQuantity: prevState.cartQuantity + 1,
       cartContains_id_array: [...prevState.cartContains_id_array, _id]
     }))
+    this.calculateCartSubtotal();
   }
 
   removeProductFromCart(_id) {
-    // console.log(_id); 
     let filtered_cart = this.state.cart.filter(product => product._id !== _id);
     let filtered_cart_id = this.state.cartContains_id_array.filter(product => product !== _id);
-    console.log(filtered_cart)
+
     this.setState(prevState => ({
       cart: filtered_cart,
       cartContains_id_array: filtered_cart_id,
       cartQuantity: prevState.cartQuantity - 1
     }))
+
+    this.calculateCartSubtotal();
   }
 
-  // removePeople(e) {
-  //   let filteredArray = this.state.people.filter(item => item !== e.target.value)
-  //   this.setState({people: filteredArray});
-  // }
+  calculateCartSubtotal() {
+
+    this.setState({
+      cartSubtotal: 0
+    },
+    () => {for (let item in this.state.cart) {
+        let newItemPrice = this.state.cart[item].price;
+
+        this.setState({
+          cartSubtotal: this.state.cartSubtotal += newItemPrice
+        })
+      }}
+    );
+  }
+
 
   render() {
     return (
@@ -411,6 +426,7 @@ class App extends Component {
           closeLoginMenu = {this.closeLoginMenu}
           getProducts = {this.getProducts}
           cartQuantity = {this.state.cartQuantity}
+          calculateCartSubtotal = {this.calculateCartSubtotal}
         />
         <Routes 
           handleSignInChange = {this.handleSignInChange}
@@ -425,6 +441,9 @@ class App extends Component {
           email = {this.state.email}
           products = {this.state.products}
           cart = {this.state.cart}
+          cartQuantity = {this.state.cartQuantity}
+          cartSubtotal = {this.state.cartSubtotal}
+          calculateCartSubtotal = {this.calculateCartSubtotal}
           currentProduct_id = {this.state.currentProduct_id}
           currentProduct = {this.state.currentProduct}
           currentProductPrice = {this.state.currentProductPrice}

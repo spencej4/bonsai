@@ -68,6 +68,9 @@ class Routes extends Component {
                                     products = {this.props.products}
                                     viewProduct = {this.props.viewProduct}
                                     cart={this.props.cart}
+                                    cartQuantity = {this.props.cartQuantity}
+                                    cartSubtotal = {this.props.cartSubtotal}
+                                    calculateCartSubtotal = {this.props.calculateCartSubtotal}
                                     cartContains_id_array = {this.props.cartContains_id_array}
                                     removeProductFromCart = {this.props.removeProductFromCart}
                                   />

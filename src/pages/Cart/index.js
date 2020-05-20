@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CartContainer from './CartContainer'
+import CartTotal from './CartTotal';
 
 class Cart extends Component {
     render() {
@@ -11,12 +12,22 @@ class Cart extends Component {
             )
         } else {
             return (
+                <React.Fragment>
                 <div className='cart-container'>
                     <CartContainer
                         cart = {this.props.cart}
                         removeProductFromCart = {this.props.removeProductFromCart}
                     />
                 </div>
+                <div className = 'cart-total-container'>
+                    <CartTotal 
+                        cart = {this.props.cart}
+                        cartQuantity = {this.props.cartQuantity}
+                        cartSubtotal = {this.props.cartSubtotal}
+                        calculateCartSubtotal = {this.props.calculateCartSubtotal}
+                    />
+                </div>
+                </React.Fragment>
             )
         }
     }
