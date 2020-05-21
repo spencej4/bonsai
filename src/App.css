@@ -2907,6 +2907,7 @@ hr {
 .product-price {
   bottom: 3px;
   width: 100%;
+  margin-left: 10px;
   font-size: 15px;
   color: #382F2D;
   position: absolute;
