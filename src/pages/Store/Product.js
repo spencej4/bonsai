@@ -10,7 +10,7 @@ class Product extends Component {
                     <div className = 'product-info'>
                         <div className ='product-name'>{this.props.product}</div>
                         <div className ='product-price'>${this.props.price}</div>
-                        <div className ='product-description'>About: {this.props.description}</div>
+                        {/* <div className ='product-description'>About: {this.props.description}</div> */}
                     </div>
                     <div className = 'product-image-container'>
                         <img src={this.props.image} 

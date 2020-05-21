@@ -50,11 +50,11 @@ class Header extends Component {
                         </li>
                         ) : null }
                         <li className='headerLinkItem cart-link'> 
-                            <Link to="/cart" className='headerLink'
+                            <NavLink to="/cart" className='headerLink' activeclassname="active"
                                 onClick = {() => this.props.calculateCartSubtotal()}>
                                 <img className='cart-image' alt='cart icon' src={cartImage}></img>
                                 <span className='cart-quantity'>{this.props.cartQuantity}</span>
-                            Cart</Link>
+                            Cart</NavLink>
                         </li>
 
                     </div> 
