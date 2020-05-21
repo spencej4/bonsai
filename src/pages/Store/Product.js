@@ -9,7 +9,7 @@ class Product extends Component {
                     onClick={() => this.props.viewProduct(this.props._id, this.props.product, this.props.price, this.props.description, this.props.image)}>
                     <div className = 'product-info'>
                         <div className ='product-name'>{this.props.product}</div>
-                        <div className ='product-price'>Price: ${this.props.price}</div>
+                        <div className ='product-price'>${this.props.price}</div>
                         <div className ='product-description'>About: {this.props.description}</div>
                     </div>
                     <div className = 'product-image-container'>

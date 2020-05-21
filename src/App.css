@@ -2825,7 +2825,7 @@ hr {
 .product-container {
   margin: 10px 0 25px 0;
   width: 50vw;
-  height: 284px;
+  height: 330px;
   display: inline-block;
   position: relative;
   transition: background-color 0.3s ease;
@@ -2835,27 +2835,32 @@ hr {
 }
 
 .product-info {
-  bottom: 0;
-  width: 218px;
+  bottom: 24px;
+  width: 164px;
+  height: 80px;
   /* float: right; */
   position: absolute;
 }
 
 .product-name {
-  bottom: 40px;
+  bottom: 29px;
+  width: 100%;
   font-size: 22px;
   color: black;
   display: inline-block;
   position: absolute;
-  z-index: 2;
+  text-align: center;
+  /* z-index: 2; */
 }
 
 .product-price {
   bottom: 0;
+  width: 100%;
   font-size: 22px;
   color: black;
   position: absolute;
-  z-index: 2;
+  text-align: center;
+  /* z-index: 2; */
 }
 
 .product-description {
@@ -2868,9 +2873,9 @@ hr {
 
 .product-image {
   width: 44vw;
-  height: 21vh;
+  height: 27vh;
   object-fit: cover;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .current-product-container {
