@@ -82,7 +82,7 @@ class Header extends Component {
                                 {/* standard links, no login necessary*/}
                                 <li className='login-option'>
                                     <Link to="/store" className='headerLink' activeclassname="active"
-                                        onClick={() => { this.props.closeLoginMenu(); this.props.getProducts() }}>Store
+                                        onClick={() => { this.props.closeLoginMenu(); this.props.getProducts(); this.props.scrollWindow() }}>Store
                                     </Link>
                                 </li>
                                 <hr></hr>
@@ -94,7 +94,7 @@ class Header extends Component {
                                 <hr></hr>
                                 <li className='login-option'>
                                     <Link to="/cart" className='headerLink' activeclassname="active"
-                                        onClick={() => { this.props.closeLoginMenu(); this.props.calculateCartSubtotal() }}>Cart
+                                        onClick={() => { this.props.closeLoginMenu(); this.props.calculateCartSubtotal(); this.props.scrollWindow() }}>Cart
                                     </Link>
                                 </li>
                                 <hr></hr>
@@ -111,7 +111,7 @@ class Header extends Component {
                                 {(!this.props.isAuthenticated) ? ( 
                                     <li className='login-option'>
                                         <Link to="/register" className='headerLink' activeclassname="active"
-                                            onClick={() => { this.props.closeLoginMenu(); this.props.clearAuthenticationErrors()}}
+                                            onClick={() => { this.props.closeLoginMenu(); this.props.clearAuthenticationErrors() }}
                                             >Register
                                         </Link>
                                     </li>
@@ -136,7 +136,7 @@ class Header extends Component {
                             <hr></hr>
                             <li className='login-option'>
                                 <Link to="/cart" className='headerLink' activeclassname="active"
-                                    onClick={() => { this.props.closeLoginMenu(); this.props.calculateCartSubtotal() }}>Cart
+                                    onClick={() => { this.props.closeLoginMenu(); this.props.calculateCartSubtotal(); this.props.scrollWindow() }}>Cart
                                 </Link>
                             </li>
                             <hr></hr>

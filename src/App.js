@@ -427,6 +427,7 @@ class App extends Component {
           getProducts = {this.getProducts}
           cartQuantity = {this.state.cartQuantity}
           calculateCartSubtotal = {this.calculateCartSubtotal}
+          scrollWindow = {this.scrollWindow}
         />
         <Routes 
           handleSignInChange = {this.handleSignInChange}
