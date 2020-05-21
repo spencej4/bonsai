@@ -92,6 +92,12 @@ class Header extends Component {
                                     </Link>
                                 </li>
                                 <hr></hr>
+                                <li className='login-option'>
+                                    <Link to="/cart" className='headerLink' activeclassname="active"
+                                        onClick={() => { this.props.closeLoginMenu(); this.props.calculateCartSubtotal() }}>Cart
+                                    </Link>
+                                </li>
+                                <hr></hr>
                                 {/* login necessary, links */}
                                 {(!this.props.isAuthenticated) ? ( 
                                     <li className='login-option'>
@@ -128,7 +134,12 @@ class Header extends Component {
                                 </Link>
                             </li>
                             <hr></hr>
-
+                            <li className='login-option'>
+                                <Link to="/cart" className='headerLink' activeclassname="active"
+                                    onClick={() => { this.props.closeLoginMenu(); this.props.calculateCartSubtotal() }}>Cart
+                                </Link>
+                            </li>
+                            <hr></hr>
                             {/* user is logged in, info and links */}
                             {(this.props.isAuthenticated) ? ( 
                                 <li className='user-card' 
@@ -148,7 +159,7 @@ class Header extends Component {
                              
                             {(this.props.isAuthenticated) ? ( 
                                 <li className='login-option' onClick={() => this.props.onLogoutClick('mobile')}>
-                                    <Link to='/'>Logout</Link>
+                                    <Link to='/' className='headerLink'>Logout</Link>
                                 </li>
 
                             ) : (null)}

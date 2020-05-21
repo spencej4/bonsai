@@ -12,7 +12,7 @@ class ViewProduct extends Component {
                         </div>
                         <div className = 'current-product-info-container'>
                             <div className ='current-product-name'>{this.props.currentProduct}</div>
-                            <div className ='current-product-price'>Price: ${this.props.currentProductPrice}</div>
+                            <div className ='current-product-price'>${this.props.currentProductPrice}</div>
                             <div className ='current-product-description'>About: {this.props.currentProductDescription}</div>
                             <button className = 'remove-from-cart-button'
                                     onClick = {() => this.props.removeProductFromCart(this.props.currentProduct_id)}>Remove From Cart</button>
@@ -29,7 +29,7 @@ class ViewProduct extends Component {
                     </div>
                     <div className = 'current-product-info-container'>
                         <div className ='current-product-name'>{this.props.currentProduct}</div>
-                        <div className ='current-product-price'>Price: ${this.props.currentProductPrice}</div>
+                        <div className ='current-product-price'>${this.props.currentProductPrice}</div>
                         <div className ='current-product-description'>About: {this.props.currentProductDescription}</div>
                         <button className = 'add-to-cart-button'
                                 onClick = {() => this.props.addProductToCart(this.props.currentProduct_id, this.props.currentProduct, this.props.currentProductPrice, this.props.currentProductDescription, this.props.currentProductImage)}>Add To Cart</button>

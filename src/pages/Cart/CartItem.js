@@ -11,7 +11,7 @@ class CartItem extends Component {
                 </div>
                 <div className = 'cart-product-info-container'>
                     <div className ='cart-product-name'>{this.props.product}</div>
-                    <div className ='cart-product-price'>Price: ${this.props.price}</div>
+                    <div className ='cart-product-price'>${this.props.price}</div>
                     <div className ='cart-product-description'>About: {this.props.description}</div>
                     <button className = 'cart-remove-from-cart-button'
                             onClick = {() => this.props.removeProductFromCart(this.props._id)}>Remove From Cart</button>

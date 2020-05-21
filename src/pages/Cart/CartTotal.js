@@ -6,7 +6,7 @@ class CartTotal extends Component {
         return (
             <div className = 'cart-subtotal-info'>
                 <p>Subtotal:
-                    <span className ='cart-items-integer'>( {this.props.cartQuantity} items): 
+                    <span className ='cart-items-integer'> ( {this.props.cartQuantity} items): 
                         <span className = 'cart-subtotal-integer'>${this.props.cartSubtotal}</span>
                     </span>
                 </p>
