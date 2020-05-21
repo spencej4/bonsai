@@ -1651,13 +1651,16 @@ hr {
 
 .current-product-name {
   font-size: 30px;
-  color: black;
+  color: #382F2D;
+  letter-spacing: 5px;
   display: inline-block;
+  text-transform: uppercase;
 }
 
 .current-product-price {
   font-size: 28px;
-  color: black;
+  color: #382F2D;
+  letter-spacing: 5px;
 }
 
 .current-product-description {
@@ -1665,9 +1668,11 @@ hr {
   height: auto;
   padding-top: 20px;
   font-size: 16px;
-  color: black;
+  line-height: 24px;
+  color: #382F2D;
   z-index: 2;
   overflow: hidden;
+  text-transform: uppercase;
 }
 
 .add-to-cart-button {
@@ -1675,17 +1680,20 @@ hr {
   height: 50px;
   margin-top: 60px;
   border-radius: 5px;
-  background-color: rgb(166, 235, 154);
+  background-color: rgb(195, 188, 184);
   /* background-color: lightgreen; */
   border: none;
-  font-size: 20px;
-  color: #FFF;
+  font-size: 15px;
+  letter-spacing: 5px;
+  color: #382F2D;
   clear: left;
   cursor: pointer;
-}
+  text-transform: uppercase;
+}  
 
 .add-to-cart-button:hover {
-  background-color: rgb(140, 220, 120);
+  background-color: #382F2D;
+  color: #FFF;
 }
 
 .remove-from-cart-button {
@@ -1693,17 +1701,19 @@ hr {
   height: 50px;
   margin-top: 60px;
   border-radius: 5px;
-  background-color: rgba(255, 0, 127, 0.5);
-  /* background-color: lightgreen; */
+  background-color: #382F2D;
   border: none;
-  font-size: 20px;
+  font-size: 15px;
+  letter-spacing: 5px;
   color: #FFF;
   clear: left;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .remove-from-cart-button:hover {
-  background-color: rgba(255, 0, 127, 0.8);
+  background-color: rgb(195, 188, 184);
+  color: #382F2D;
 }
 
 /* ===================================End of STORE=================================== */
@@ -1751,13 +1761,15 @@ hr {
 
 .cart-product-name {
   font-size: 30px;
-  color: black;
+  font-weight: 100;
+  color: #382F2D;
   display: inline-block;
+  text-transform: uppercase;
 }
 
 .cart-product-price {
   font-size: 28px;
-  color: black;
+  color: #382F2D;
 }
 
 .cart-product-description {
@@ -1766,33 +1778,38 @@ hr {
   padding-top: 20px;
   padding-right: 20px;
   font-size: 16px;
-  color: black;
+  line-height: 24px;
+  color: #382F2D;
   z-index: 2;
   float: left;
-  overflow-wrap: break-word
+  overflow-wrap: break-word;
+  text-transform: uppercase;
 }
 
 .cart-remove-from-cart-button {
   width: 200px;
   height: 50px;
   border-radius: 5px;
-  background-color: rgba(255, 0, 127, 0.5);
+  background-color: #382F2D;
   border: none;
-  font-size: 20px;
+  font-size: 15px;
+  letter-spacing: 5px;
   color: #FFF;
   float: right;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .cart-remove-from-cart-button:hover {
-  background-color: rgba(255, 0, 127, 0.8);
+  background-color: rgb(195, 188, 184);
+  color: #382F2D;
 }
 
 .cart-total-container {
   width: 419px;
   height: 450px;
   margin: 138px 18px 0 0px;
-  border: 1px solid hotpink;
+  border: 1px solid #382F2D;
   float: right;
 }
 
@@ -2875,20 +2892,6 @@ hr {
   position: absolute;
 }
 
-/* .product-name {
-  bottom: 29px;
-  width: 100%;
-  font-size: 22px;
-  color: #382F2D;
-  display: inline-block;
-  position: absolute;
-  text-align: center;
-  line-height: 7px;
-  letter-spacing: 2px;
-  font-weight: 400;
-  text-transform: uppercase;
-}  */
-
 .product-name {
   bottom: 29px;
   width: 100%;
@@ -2959,17 +2962,22 @@ hr {
 
 .current-product-name {
   width: 100vw;
-  font-size: 30px;
-  color: black;
+  font-size: 19px;
+  color: #382F2D;
   display: inline-block;
   text-align: center;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
 }
 
 .current-product-price {
   width: 100vw;
-  color: black;
-  font-size: 28px;
+  color: #382F2D;
+  font-size: 19px;
   text-align: center;
+  font-weight: 700;
+  letter-spacing: 5px;
 }
 
 .current-product-description {
@@ -2977,7 +2985,10 @@ hr {
   height: auto;
   padding-top: 20px;
   font-size: 16px;
-  color: black;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 26px;
+  color: #382F2D;
   z-index: 2;
   overflow: hidden;
   text-align: center;
@@ -2989,12 +3000,14 @@ hr {
   margin-top: 32px;
   margin-left: 17px;
   border-radius: 5px;
-  background-color: rgb(166, 235, 154);
+  background-color: rgb(195, 188, 184);
   border: none;
-  font-size: 20px;
-  color: #FFF;
+  font-size: 15px;
+  letter-spacing: 5px;
+  color: #382F2D;
   clear: left;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .remove-from-cart-button {
@@ -3003,12 +3016,14 @@ hr {
   margin-top: 32px;
   margin-left: 17px;
   border-radius: 5px;
-  background-color: rgba(255, 0, 127, 0.5);
+  background-color: #382F2D;
   border: none;
-  font-size: 20px;
+  font-size: 15px;
+  letter-spacing: 5px;
   color: #FFF;
   clear: left;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 
@@ -3071,18 +3086,14 @@ hr {
     height: 50px;
     margin-top: 10px;
     border-radius: 5px;
-    background-color: rgba(255, 0, 127, 0.5);
+    background-color: #382F2D;
     border: none;
-    font-size: 20px;
+    font-size: 15px;
     color: #FFF;
-    /* float: right; */
     cursor: pointer;
+    text-transform: uppercase;
   }
-  
-  /* .cart-remove-from-cart-button:hover {
-    background-color: rgba(255, 0, 127, 0.8);
-  } */
-  
+   
   .cart-total-container {
     width: 100vw;
     height: 450px;
