@@ -82,7 +82,7 @@ class Header extends Component {
                                 {/* standard links, no login necessary*/}
                                 <li className='login-option'>
                                     <Link to="/store" className='headerLink' activeclassname="active"
-                                        onClick={() => this.props.closeLoginMenu()}>Store
+                                        onClick={() => { this.props.closeLoginMenu(); this.props.getProducts() }}>Store
                                     </Link>
                                 </li>
                                 <hr></hr>
@@ -96,7 +96,7 @@ class Header extends Component {
                                 {(!this.props.isAuthenticated) ? ( 
                                     <li className='login-option'>
                                         <Link to="/signin" className='headerLink' activeclassname="active"
-                                            onClick={() => { this.props.closeLoginMenu(); this.props.clearAuthenticationErrors()}}
+                                            onClick={() => { this.props.closeLoginMenu(); this.props.clearAuthenticationErrors() }}
                                             >Sign In
                                         </Link>
                                     </li>
