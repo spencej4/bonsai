@@ -1,15 +1,14 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
-const bodyParser = require('body-parser');
-
 var session = require('express-session');
 var cookieParser = require('cookie-parser')
-
 const app = express();
 app.set('port', (process.env.PORT || 4000));
 app.use(cors());
+
 
 // updates deprecation, eliminates server side error message in terminal console
 mongoose.set('useCreateIndex', true);
@@ -42,6 +41,7 @@ mongoose.Promise = global.Promise;
 app.use(bodyParser.json());
 app.use('/api', require('./api'));
 
+
 //init app
 //build part of the react app
 app.use('/', express.static(path.join(__dirname, '../build')));
@@ -57,7 +57,6 @@ app.use(function(err, req, res, next){
     res.send(err.message);
 });
 
-// testing 04/20/20
 app.all('', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost");
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
@@ -65,7 +64,7 @@ app.all('', function(req, res, next) {
     //Auth Each API Request created by user.
     next();
 });
-// end testing 04/20/20
+
 
 //port
 app.listen(app.get('port'), function () {

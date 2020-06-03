@@ -45,10 +45,9 @@ class App extends Component {
     this.addProductToCart = this.addProductToCart.bind(this);
     this.removeProductFromCart = this.removeProductFromCart.bind(this);
     this.calculateCartSubtotal = this.calculateCartSubtotal.bind(this);
+    this.onCheckoutClick = this.onCheckoutClick.bind(this);
   }
 
-
-  
 
   // scroll window to the top
   scrollWindow() {
@@ -385,6 +384,7 @@ class App extends Component {
     this.calculateCartSubtotal();
   }
 
+  
   removeProductFromCart(_id) {
     let filtered_cart = this.state.cart.filter(product => product._id !== _id);
     let filtered_cart_id = this.state.cartContains_id_array.filter(product => product !== _id);
@@ -397,6 +397,7 @@ class App extends Component {
 
     this.calculateCartSubtotal();
   }
+
 
   calculateCartSubtotal() {
 
@@ -411,6 +412,11 @@ class App extends Component {
         })
       }}
     );
+  }
+
+
+  onCheckoutClick() {
+    // alert('checkout clicked');
   }
 
 
@@ -455,6 +461,7 @@ class App extends Component {
           addProductToCart = {this.addProductToCart}
           removeProductFromCart = {this.removeProductFromCart}
           cartContains_id_array = {this.state.cartContains_id_array}
+          onCheckoutClick = {this.onCheckoutClick}
         />
       </Router>
     );

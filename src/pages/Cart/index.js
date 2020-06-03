@@ -25,6 +25,7 @@ class Cart extends Component {
                         cartQuantity = {this.props.cartQuantity}
                         cartSubtotal = {this.props.cartSubtotal}
                         calculateCartSubtotal = {this.props.calculateCartSubtotal}
+                        onCheckoutClick = {this.props.onCheckoutClick}
                     />
                 </div>
                 </React.Fragment>

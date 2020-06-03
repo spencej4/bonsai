@@ -2,6 +2,7 @@ const express= require('express');
 const router = express.Router();
 const User =  require('./models/user.js');
 
+
 //POST request for user registration
 router.post('/register', function(request, response){
       var u = new User({
@@ -21,24 +22,24 @@ router.post('/register', function(request, response){
     response.json({msg: response.body});
 });
 
-
+// commented out...still works because it's called by api.js
 // POST request for user login
-router.post('/login', function(request, response, next){
-  // console.log(`Email: ${request.body.email}   (from: api)`);
-  // console.log(`Password: ${request.body.password}   (from: api)`);
+// router.post('/login', function(request, response, next){
+//   // console.log(`Email: ${request.body.email}   (from: api)`);
+//   // console.log(`Password: ${request.body.password}   (from: api)`);
 
-   User.authenticate(request.body.email, request.body.password, function (error, user) {
-      if (error || !user) {
-        var err = new Error('Wrong email or password.');
-        err.status = 401;
-        return next(err)
-      } else {
-        console.log(`User ID: ${user._id} is authenticated  (from: api)`);
-        let body = user.id;
-        return response.json(body);
-      }
-    });
-});
+//    User.authenticate(request.body.email, request.body.password, function (error, user) {
+//       if (error || !user) {
+//         var err = new Error('Wrong email or password.');
+//         err.status = 401;
+//         return next(err)
+//       } else {
+//         console.log(`User ID: ${user._id} is authenticated  (from: api)`);
+//         let body = user.id;
+//         return response.json(body);
+//       }
+//     });
+// });
 
 
 // GETS request for user content

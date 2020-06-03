@@ -10,6 +10,7 @@ import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
 import ViewProduct from '../pages/Store/ViewProduct';
 import Cart from '../pages/Cart';
+import PaymentPage from '../pages/PaymentPage';
 
 
 class Routes extends Component {
@@ -73,6 +74,13 @@ class Routes extends Component {
                                     calculateCartSubtotal = {this.props.calculateCartSubtotal}
                                     cartContains_id_array = {this.props.cartContains_id_array}
                                     removeProductFromCart = {this.props.removeProductFromCart}
+                                    onCheckoutClick = {this.props.onCheckoutClick}
+                                  />
+                      }
+          />
+          <Route path= '/process-payment'
+            render = {(props) => <PaymentPage {...props}
+                                    cartSubtotal = {this.props.cartSubtotal}
                                   />
                       }
           />
