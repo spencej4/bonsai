@@ -1970,6 +1970,32 @@ hr {
 
 }
 
+/* =================================== ADMIN =========================================*/
+.manage-list {
+  width: 100%;
+  /* height: 40%; */
+}
+
+.manage-link {
+  display: inline-block;
+  /* float: left; */
+}
+
+.manage-button {
+  width: 230px;
+  height: 50px;
+  margin-left: 16px;
+  border-radius: 5px;
+  display: inline-block;
+  background-color: hotpink;
+  border: none;
+  font-size: 15px;
+  letter-spacing: 5px;
+  color: #FFF;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
 
 /* ===================================================================================================================*/
 /* ================                                LARGE DESKTOP                                  ====================*/

@@ -9,6 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      adminLogged: false,
       isRegistered: false,
       loginError: false,
       registerError: false,
@@ -27,6 +28,8 @@ class App extends Component {
       cartSubtotal: 0,
       cartContains_id_array: []
     }
+    this.onAdminLogin = this.onAdminLogin.bind(this);
+    this.onManageStoreClick = this.onManageStoreClick.bind(this);
     this.scrollWindow = this.scrollWindow.bind(this);
     this.handleSignInChange = this.handleSignInChange.bind(this);
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
@@ -53,6 +56,7 @@ class App extends Component {
   scrollWindow() {
     window.scrollTo(0, 0);
   }
+
 
   //sets state to input value of sign-in/ register fields
   handleSignInChange(event) {
@@ -136,6 +140,9 @@ class App extends Component {
         return response.json();
       }.bind(this))
       .then(function(data){
+          if(this.state.log_email === 'admin@admin.com') {
+            this.onAdminLogin();
+          }
           this.scrollWindow();
           this.setState({
             isAuthenticated: true,
@@ -144,8 +151,7 @@ class App extends Component {
           this.setCookie('username', this.state.log_email, 30);
           this.setCookieID('idName', data, 30);
         
-      }.bind(this));
-
+      }.bind(this))
       // this.createUserImageIDArray();
   }
 
@@ -420,10 +426,24 @@ class App extends Component {
   }
 
 
+  onAdminLogin() {
+    alert('admin logged in');
+    this.setState({
+      adminLogged: true
+    })
+  }
+
+
+  onManageStoreClick() {
+  }
+
+
   render() {
     return (
       <Router history={history}>
         <Header 
+          adminLogged = {this.state.adminLogged}
+          onManageStoreClick = {this.onManageStoreClick}
           isAuthenticated = {this.state.isAuthenticated}
           log_email = {this.state.log_email}
           onLogoutClick = {this.onLogoutClick}

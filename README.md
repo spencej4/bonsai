@@ -1,6 +1,11 @@
 # About
 ### Placeholder App for future build.
 
+# Local Dev Environment vs Production Environment 
+###     In package.json
+###         -for Dev: "start": "react-scripts start",
+###         -for Production: "start": "node server/index.js",
+
 
 # To Run:
 ###  1:   Open Terminal (for client side)
@@ -25,7 +30,6 @@
 
 
 # To - Do:
-###  -- Click a product div, redirect to new page with more info.
-###     -- must work with history
+###  -- Add auth check for login as Admin
 
 

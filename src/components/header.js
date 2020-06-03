@@ -15,6 +15,13 @@ class Header extends Component {
                     </div>
 
                     <div className='headerLinksContainer'>
+                        {/* admin is logged in */}
+                        {(this.props.adminLogged) ? ( 
+                            <li className='headerLinkItem'> 
+                                <NavLink to="/manage-store" className='headerLink' activeclassname="active"
+                                        onClick={() => this.props.onManageStoreClick()}>Manage Store</NavLink>
+                            </li>
+                         ) : null }
                         <li className='headerLinkItem'> 
                             <NavLink to="/store" className='headerLink' activeclassname="active"
                                      onClick={() => this.props.getProducts()}>Store</NavLink>

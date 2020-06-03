@@ -11,7 +11,10 @@ import Dashboard from '../pages/Dashboard';
 import ViewProduct from '../pages/Store/ViewProduct';
 import Cart from '../pages/Cart';
 import PaymentPage from '../pages/PaymentPage';
-
+import ManageStore from '../pages/ManageStore';
+import AddProduct from '../pages/ManageStore/AddProduct';
+import DeleteProduct from '../pages/ManageStore/DeleteProduct';
+import ModifyProduct from '../pages/ManageStore/ModifyProduct';
 
 class Routes extends Component {
   render() {
@@ -85,7 +88,26 @@ class Routes extends Component {
                       }
           />
 
-          <Route path="/dashboard" component={Dashboard} isPrivate />
+          <Route exact path='/manage-store'
+            render = {(props) => <ManageStore {...props}
+          
+                                 />
+                     }
+          />
+
+          <Route path ='/manage-store/add-product'
+            render = {(props) => <AddProduct></AddProduct>}
+          />
+
+          <Route path ='/manage-store/delete-product'
+            render = {(props) => <DeleteProduct></DeleteProduct>}
+          />
+
+          <Route path ='/manage-store/modify-product'
+            render = {(props) => <ModifyProduct></ModifyProduct>}
+          />
+
+
           {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
           {/* <Route component={SignInPage} /> */}
       </Switch>
@@ -94,3 +116,5 @@ class Routes extends Component {
 }
 
 export default Routes;
+
+
