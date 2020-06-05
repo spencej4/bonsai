@@ -3,7 +3,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const User =  require('./models/user.js');
 const Products = require('./models/products.js')
-// ====================================================testing square:
+// ==================================================== square:
 const crypto = require('crypto');
 const squareConnect = require('square-connect');
 const dotenv = require('dotenv');
@@ -25,7 +25,7 @@ oauth2.accessToken = accessToken;
 // sandbox: https://connect.squareupsandbox.com
 // production: https://connect.squareup.com
 defaultClient.basePath = 'https://connect.squareupsandbox.com';
-// ================================================== end square test
+// ================================================== end square 
 
 
 //POST request for user registration
@@ -93,7 +93,7 @@ router.get('/products/:query', function (request, response) {
 })
 
 
-// ====================================================testing square:
+// ==================================================== square:
 router.post('/process-payment', async (req, res) => {
   const request_params = req.body;
   const amount = parseInt(request_params.amount);
@@ -130,6 +130,22 @@ router.post('/process-payment', async (req, res) => {
     });
   }
 });
-// ================================================== end square test
+// ================================================== end square 
+
+// POST request - admin adds product to store
+router.post('/add-product', async (request, response, next) => {
+  Products.add_product(request.body.new_product_name, request.body.new_product_price,
+    request.body.new_product_description, request.body.new_product_image_url, 
+    function (error, product) {
+      if (error || !product) {
+        var err = new Error('Error adding new product');
+        err.status = 401;
+        return next(err)
+      } else {
+        let body = product.product
+        return response.json(body);
+      }
+  });
+})
 
 module.exports = router;

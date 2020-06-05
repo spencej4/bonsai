@@ -49,6 +49,8 @@ class App extends Component {
     this.removeProductFromCart = this.removeProductFromCart.bind(this);
     this.calculateCartSubtotal = this.calculateCartSubtotal.bind(this);
     this.onCheckoutClick = this.onCheckoutClick.bind(this);
+    this.handleAddProductChange = this.handleAddProductChange.bind(this);
+    this.onAddProductSubmit = this.onAddProductSubmit.bind(this);
   }
 
 
@@ -116,7 +118,6 @@ class App extends Component {
     event.preventDefault();
     // this.scrollWindow();
 
-    event.preventDefault();
     fetch('/api/login',{
           method: 'POST',
           mode: "cors",
@@ -427,7 +428,6 @@ class App extends Component {
 
 
   onAdminLogin() {
-    alert('admin logged in');
     this.setState({
       adminLogged: true
     })
@@ -435,6 +435,46 @@ class App extends Component {
 
 
   onManageStoreClick() {
+  }
+
+
+  //sets state to input value of add product form fields
+  handleAddProductChange(event) {
+    event.preventDefault();
+    this.setState({ 
+      [event.target.name]: event.target.value,
+    });
+  }
+
+
+  // admin adds a product to db
+  onAddProductSubmit(event) {
+    event.preventDefault();
+
+    fetch('/api/add-product',{
+      method: 'POST',
+      mode: "cors",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: "same-origin",
+      body: JSON.stringify({
+        new_product_name: this.state.new_product_name,
+        new_product_price: this.state.new_product_price,
+        new_product_description: this.state.new_product_description,
+        new_product_image_url: this.state.new_product_image_url
+      }) 
+  }).then(function(response){
+    // could not authenticate user
+    if (response.status !== 200) {
+      this.setState({
+        // for alerting user of authentiation issue
+        // loginError: true
+      })
+    }
+    // return response.json();
+  }.bind(this))
   }
 
 
@@ -482,6 +522,12 @@ class App extends Component {
           removeProductFromCart = {this.removeProductFromCart}
           cartContains_id_array = {this.state.cartContains_id_array}
           onCheckoutClick = {this.onCheckoutClick}
+          handleAddProductChange = {this.handleAddProductChange}
+          new_product_name = {this.state.new_product_name}
+          new_product_price = {this.state.new_product_price}
+          new_product_description = {this.state.new_product_description}
+          new_product_image_url = {this.state.new_product_image_url}
+          onAddProductSubmit = {this.onAddProductSubmit}
         />
       </Router>
     );

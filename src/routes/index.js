@@ -7,7 +7,6 @@ import Musings from '../pages/Musings';
 import UserInfo from '../pages/UserInfo';
 import SignInPage from '../pages/SignIn';
 import Register from '../pages/Register';
-import Dashboard from '../pages/Dashboard';
 import ViewProduct from '../pages/Store/ViewProduct';
 import Cart from '../pages/Cart';
 import PaymentPage from '../pages/PaymentPage';
@@ -90,13 +89,25 @@ class Routes extends Component {
 
           <Route exact path='/manage-store'
             render = {(props) => <ManageStore {...props}
-          
+                                    handleAddProductChange = {this.props.handleAddProductChange}
+                                    onAddProductSubmit = {this.props.onAddProductSubmit}
+                                    new_product_name = {this.props.new_product_name}
+                                    new_product_price = {this.props.new_product_price}
+                                    new_product_description = {this.props.new_product_description}
+                                    new_product_image_url = {this.props.new_product_image_url}
                                  />
                      }
           />
 
           <Route path ='/manage-store/add-product'
-            render = {(props) => <AddProduct></AddProduct>}
+            render = {(props) => <AddProduct {...props}
+                                    handleAddProductChange = {this.props.handleAddProductChange}
+                                    onAddProductSubmit = {this.props.onAddProductSubmit}
+                                    new_product_name = {this.props.new_product_name}
+                                    new_product_price = {this.props.new_product_price}
+                                    new_product_description = {this.props.new_product_description}
+                                    new_product_image_url = {this.props.new_product_image_url}
+                                  />}
           />
 
           <Route path ='/manage-store/delete-product'
