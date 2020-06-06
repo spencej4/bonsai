@@ -40,7 +40,7 @@ ProductSchema.statics.add_product = function(product, price, description, image,
     {upsert: true, new: true },
     function(res, doc) {
       let newProduct = doc.products[doc.products.length-1].product
-      console.log(`${newProduct} from  (Product Schema)`)
+      console.log(`Added new product: ${newProduct} (from Product Schema)`)
       return callback(null, newProduct)
     }
   )

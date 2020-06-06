@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 class AddProduct extends Component {
+  resetForm = () => { 
+    document.getElementById("add-product-form").reset();
+  }
   render() {
     return (
       <div className='admin-container'>
@@ -8,7 +11,7 @@ class AddProduct extends Component {
         <form id='add-product-form'
               action = " "
               method = " "
-              onSubmit={(event) => this.props.onAddProductSubmit(event)}
+              onSubmit={(event) => {this.props.onAddProductSubmit(event); this.resetForm()}}
         >
             <div className='input-field-container'>
               <label className='input_label'>Product Name</label>

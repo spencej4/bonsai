@@ -47,7 +47,7 @@ class ManageStore extends Component {
       }
   render() {
     return (
-        <div className='temp-testing'>
+        <div className='manage-store-container'>
           {this.renderRedirect()}
           <ul className = 'manage-list'>
                 <li className = 'manage-link'>

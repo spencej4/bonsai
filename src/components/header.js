@@ -21,7 +21,7 @@ class Header extends Component {
                                 <NavLink to="/manage-store" className='headerLink' activeclassname="active"
                                         onClick={() => this.props.onManageStoreClick()}>Manage Store</NavLink>
                             </li>
-                         ) : null }
+                        ) : null }
                         <li className='headerLinkItem'> 
                             <NavLink to="/store" className='headerLink' activeclassname="active"
                                      onClick={() => this.props.getProducts()}>Store</NavLink>
@@ -67,7 +67,6 @@ class Header extends Component {
                     </div> 
                     
                     {/* mobile menu */}
-
                     {(!this.props.isAuthenticated) ? ( 
                             <div className='dd-login-title'>
                                 <div className='dd-login-button'
@@ -76,14 +75,13 @@ class Header extends Component {
                             </div>
                         ) : (null)}
                           
-
-                        {(this.props.isAuthenticated) ? ( 
-                            <div className='dd-login-title'>
-                                <div className='dd-login-button-logged-in'
-                                    onClick={this.props.toggleLoginMenu}>
-                                </div>
+                    {(this.props.isAuthenticated) ? ( 
+                        <div className='dd-login-title'>
+                            <div className='dd-login-button-logged-in'
+                                onClick={this.props.toggleLoginMenu}>
                             </div>
-                        ) : (null)}
+                        </div>
+                    ) : (null)}
                     <div className='dd-login-menu hide' id='dd-login-menu' >
                         <ul className='login-options hide' id='login-options'>
                                 {/* standard links, no login necessary*/}
@@ -155,6 +153,14 @@ class Header extends Component {
                                 </li>
                             ) : (null)} 
                             <hr></hr>
+                            {/* Admin is logged in */}
+                            {(this.props.adminLogged) ? ( 
+                                <li className='login-option'> 
+                                    <Link to="/manage-store" className='headerLink' activeclassname="active"
+                                            onClick={() => this.props.closeLoginMenu()}>Manage Store
+                                    </Link>
+                                </li>
+                            ): null}
                             {(this.props.isAuthenticated) ? ( 
                                 <li className='login-option'>
                                     <Link to="/user_info" className='headerLink' activeclassname="active"

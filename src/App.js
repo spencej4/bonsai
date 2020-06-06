@@ -5,6 +5,7 @@ import history from './services/history';
 import Header from './components/header';
 import Routes from './routes';
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -437,10 +438,10 @@ class App extends Component {
   onManageStoreClick() {
   }
 
-
+  
   //sets state to input value of add product form fields
   handleAddProductChange(event) {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({ 
       [event.target.name]: event.target.value,
     });
@@ -466,19 +467,25 @@ class App extends Component {
         new_product_image_url: this.state.new_product_image_url
       }) 
   }).then(function(response){
-    // could not authenticate user
-    if (response.status !== 200) {
-      this.setState({
-        // for alerting user of authentiation issue
-        // loginError: true
-      })
+     // could not register user
+     if (response.status !== 200) {
+      alert('problem adding new product');
+      return response.json();
     }
     // return response.json();
-  }.bind(this))
+  }).then(function(data){
+    alert('Successfully added new product!')
+    this.setState({
+      new_product_name: null,
+      new_product_price: null,
+      new_product_description: null,
+      new_product_image_url: null
+    })
+  }.bind(this));
   }
-
-
+  
   render() {
+    
     return (
       <Router history={history}>
         <Header 
