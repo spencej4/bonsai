@@ -27,7 +27,7 @@ class AddProduct extends Component {
                     id='new_product_price'
                     name='new_product_price'
                     value={this.props.value}
-                    placeholder='Product Price'
+                    placeholder='Product Price (integer)'
                     onChange={(event) => this.props.handleAddProductChange(event)}>
                 </input>
             </div>
@@ -44,7 +44,7 @@ class AddProduct extends Component {
             </div>
 
             <div className='input-field-container'>
-              <label className='input_label'>Product Image (url)</label>
+              <label className='input_label'>Product Image</label>
                 <input className='add-product-input-field'
                     id='new_product_image_url'
                     name='new_product_image_url'
