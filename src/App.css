@@ -373,6 +373,7 @@ a {
   font-size: 2em;
   display: inline-block;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .logoFont a {
@@ -795,6 +796,7 @@ hr {
     letter-spacing: 1px;
     color: #FFF;
     font-family: "Helvetica Neue";
+    text-transform: uppercase;
   }
   
   .landing-text {
@@ -2214,7 +2216,7 @@ hr {
                 width: 100%;
                 height: 100vh;
                 background-image: url('../src/img/succulent.jpeg');
-                background-position:  center; 
+                background-position: top; 
                 background-repeat: no-repeat;
                 opacity: 0.9;
                 overflow: hidden;
@@ -2233,10 +2235,10 @@ hr {
               }
 
               .landing-message {
-                width: 100%;
+                width: 97%;
                 height: 200px;
                 margin-top: 76%;
-                padding-left: 12px;
+                margin-left: 12px;
                 position: absolute;
                 display: block;
               }
@@ -2254,19 +2256,22 @@ hr {
                 letter-spacing: 1px;
                 color: #FFF;
                 font-family: "Helvetica Neue";
+                text-transform: uppercase;
+                opacity: .6;
               }
               
               .landing-text {
-                margin-top: 0px;
+                margin-top: 7px;
                 text-align: left;
-                line-height: 30px;
+                line-height: 26px;
               }
               
               .landing-text p {
                 font-weight: 400;
-                font-size: 20px;
+                font-size: 18px;
                 color: #FFF;
                 font-family: "Helvetica Neue";
+                opacity: .6;
               }
 
               .landing-footer {
@@ -2283,6 +2288,7 @@ hr {
               }
 
               .landing-footer p {
+                margin-top: 20px;
                 font-weight: 100;
                 font-size: 18px;
                 color: #FFF;
@@ -3388,7 +3394,7 @@ hr {
               text-align: left;
             }
             /* ============================== End Manage Store ============================= */
-          }
+            }
 
             
 
