@@ -7,25 +7,28 @@ class AddProduct extends Component {
   render() {
     return (
       <div className='admin-container'>
-        <h1 className ='admin-h1'>Add a New Product:</h1>
+        <h1 className ='admin-h1'>Add a New Product</h1>
         <form id='add-product-form'
               action = " "
               method = " "
               onSubmit={(event) => {this.props.onAddProductSubmit(event); this.resetForm()}}
         >
-            <div className='input-field-container'>
-              <label className='input_label'>Product Name</label>
-                <input className='add-product-input-field'
-                      id='new_product_name'
-                      name='new_product_name'
-                      value={this.props.value}
-                      placeholder='Product Name'
-                      onChange={(event) => this.props.handleAddProductChange(event)}>
-                </input>
+            <div className='input-field-container form-row'>
+              <label>Product Name
+                  <br></br>
+                  <input className='add-product-input-field'
+                        id='new_product_name'
+                        name='new_product_name'
+                        value={this.props.value}
+                        placeholder='Product Name'
+                        onChange={(event) => this.props.handleAddProductChange(event)}>
+                  </input>
+                </label>
             </div>
 
-            <div className='input-field-container'>
-              <label className='input_label'>Product Price</label>
+            <div className='input-field-container form-row'>
+              <label>Product Price
+                <br></br>
                 <input className='add-product-input-field'
                     id='new_product_price'
                     name='new_product_price'
@@ -33,10 +36,12 @@ class AddProduct extends Component {
                     placeholder='Product Price (integer)'
                     onChange={(event) => this.props.handleAddProductChange(event)}>
                 </input>
+              </label>
             </div>
 
-            <div className='input-field-container'>
-                <label className='input_label'>Product Description</label>
+            <div className='input-field-container form-row'>
+                <label>Product Description
+                  <br></br>
                   <input className='add-product-input-field'
                       id='new_product_description'
                       name='new_product_description'
@@ -44,10 +49,12 @@ class AddProduct extends Component {
                       placeholder='Product Description'
                       onChange={(event) => this.props.handleAddProductChange(event)}>
                   </input>
+                </label>
             </div>
 
-            <div className='input-field-container'>
-              <label className='input_label'>Product Image</label>
+            <div className='input-field-container form-row'>
+              <label>Product Image
+                <br></br>
                 <input className='add-product-input-field'
                     id='new_product_image_url'
                     name='new_product_image_url'
@@ -55,6 +62,7 @@ class AddProduct extends Component {
                     placeholder='Product Image (url)'
                     onChange={(event) => this.props.handleAddProductChange(event)}>
                 </input>
+              </label>
             </div>
            
             
