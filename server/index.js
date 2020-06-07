@@ -9,7 +9,6 @@ var sslRedirect = require('heroku-ssl-redirect');
 const app = express();
 // forces ssl redirect using plugin
 app.use(sslRedirect());
-import '../src/fonts/Cervanttis.ttf';
 
 
 app.set('port', (process.env.PORT || 4000));
