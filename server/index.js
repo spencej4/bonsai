@@ -10,7 +10,6 @@ const app = express();
 app.set('port', (process.env.PORT || 4000));
 app.use(cors());
 
-
 // updates deprecation, eliminates server side error message in terminal console
 mongoose.set('useCreateIndex', true);
 
@@ -36,28 +35,13 @@ db.once('open', function () {
 
 //use sessions for tracking logins
 app.use(cookieParser('secret'));
-
 mongoose.Promise = global.Promise;
-
 app.use(bodyParser.json());
 app.use('/api', require('./api'));
-
-if(process.env.NODE_ENV === 'production') {
-    alert('production env detected')
-    app.use((req, res, next) => {
-      if (req.header('x-forwarded-proto') !== 'https')
-        res.redirect(`https://${req.header('host')}${req.url}`)
-      else
-        next()
-    })
-  }
-
 
 //init app
 //build part of the react app
 app.use('/', express.static(path.join(__dirname, '../build')));
-
-
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, '../build/index.html'));
 });
@@ -69,7 +53,7 @@ app.use(function(err, req, res, next){
 });
 
 app.all('', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost");
+    res.header("Access-Control-Allow-Origin", "https://localhost");
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     //Auth Each API Request created by user.
