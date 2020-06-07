@@ -5,14 +5,12 @@ const cors = require('cors');
 const path = require('path');
 var session = require('express-session');
 var cookieParser = require('cookie-parser')
-// temp
 var sslRedirect = require('heroku-ssl-redirect');
 const app = express();
+// forces ssl redirect using plugin
 app.use(sslRedirect());
-// end temp
+import '../src/fonts/Cervanttis.ttf';
 
-// original
-// const app = express();
 
 app.set('port', (process.env.PORT || 4000));
 app.use(cors());

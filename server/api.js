@@ -148,4 +148,22 @@ router.post('/add-product', async (request, response, next) => {
   });
 })
 
+//PUT request to delete a product from db
+router.put('/delete-product', function (request, response) {
+  let productID = request.body.id
+
+  Products.delete_product( productID, function(error, productID) {
+    if (error || !productID) {
+      var err = new Error('Problem deleting photo from database');
+      err.status = 401;
+      return (err)
+    } else {
+        response.json(productID);
+        console.log(`productID deleted: ${productID} (retrieved by API)`);
+        console.log('===========================================================')
+        return response;
+    }
+  });
+})
+
 module.exports = router;

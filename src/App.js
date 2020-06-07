@@ -52,6 +52,7 @@ class App extends Component {
     this.onCheckoutClick = this.onCheckoutClick.bind(this);
     this.handleAddProductChange = this.handleAddProductChange.bind(this);
     this.onAddProductSubmit = this.onAddProductSubmit.bind(this);
+    this.deleteProduct = this.deleteProduct.bind(this);
   }
 
 
@@ -483,6 +484,29 @@ class App extends Component {
     })
   }.bind(this));
   }
+
+  // admin deletes a product
+  deleteProduct(event, productID) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    fetch('/api/delete-product',{
+        method: 'PUT',
+        mode: 'cors',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: productID
+          }) 
+      }).then(response => {
+        // rebuild store
+        this.getProducts();
+        alert('Product successfully deleted!')
+        return response.json();
+    });
+}
   
   render() {
     
@@ -535,6 +559,8 @@ class App extends Component {
           new_product_description = {this.state.new_product_description}
           new_product_image_url = {this.state.new_product_image_url}
           onAddProductSubmit = {this.onAddProductSubmit}
+          getProducts = {this.getProducts}
+          deleteProduct = {this.deleteProduct}
         />
       </Router>
     );

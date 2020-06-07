@@ -95,6 +95,7 @@ class Routes extends Component {
                                     new_product_price = {this.props.new_product_price}
                                     new_product_description = {this.props.new_product_description}
                                     new_product_image_url = {this.props.new_product_image_url}
+                                    getProducts = {this.props.getProducts}
                                  />
                      }
           />
@@ -111,7 +112,10 @@ class Routes extends Component {
           />
 
           <Route path ='/manage-store/delete-product'
-            render = {(props) => <DeleteProduct></DeleteProduct>}
+            render = {(props) => <DeleteProduct
+                                    products = {this.props.products}
+                                    deleteProduct = {this.props.deleteProduct}
+                                 ></DeleteProduct>}
           />
 
           <Route path ='/manage-store/modify-product'

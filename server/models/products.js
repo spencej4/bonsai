@@ -31,7 +31,7 @@ ProductSchema.statics.findAll = function (products, callback) {
   })
 }
 
-
+// add a product to database
 ProductSchema.statics.add_product = function(product, price, description, image, callback) {
   let id = {"id": 7}
   Products.findOneAndUpdate(
@@ -40,8 +40,21 @@ ProductSchema.statics.add_product = function(product, price, description, image,
     {upsert: true, new: true },
     function(res, doc) {
       let newProduct = doc.products[doc.products.length-1].product
-      console.log(`Added new product: ${newProduct} (from Product Schema)`)
+      console.log(`Added new product: ${newProduct} (ProductSchema)`)
       return callback(null, newProduct)
+    }
+  )
+}
+
+// delete a product from database
+ProductSchema.statics.delete_product = function (productID, callback) {
+  Products.updateOne(
+    { "temp": "testing"},
+    { $pull: {products: {_id: productID } }},
+    { new: true },
+    function(err, response, doc) {
+      console.log(`admin deleted product: ${productID} (ProductSchema)`);
+      return callback(null, productID);
     }
   )
 }

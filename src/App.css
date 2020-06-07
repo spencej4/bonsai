@@ -13,6 +13,11 @@
   }
 }
 
+@font-face {
+  font-family: 'Cervanttis';
+  src: local('Cervanttis'), url(./fonts/Cervanttis.ttf) format('truetype');
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -361,7 +366,7 @@ a {
   width: 25%;
   height: 10%;
   top: 0;
-  left: 0;
+  left: 16px;
   margin: 0px 0px 0px 0px;
   display: block;
   position: relative;
@@ -369,16 +374,18 @@ a {
 }
 
 .logoFont {
-  font-family: Roboto;
-  font-size: 2em;
+  font-family: Cervanttis;
+  font-size: 1.4em;
   display: inline-block;
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .logoFont a {
   margin-left: 10px;
-  letter-spacing: 8px;
+  letter-spacing: 5px;
+  font-weight: 700;
+  opacity: 0.9;
 }
 
 .closeSearchButton {
@@ -676,9 +683,8 @@ hr {
     left: 0;
     padding-top: 12px;
     display: block;
-    position: fixed;
+    position: relative;
     z-index: 2;
-    /* background-image: url("../src/app/img/Mystic.png"); */
     background-size: 116%;
     background-color: #FFF;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
@@ -793,14 +799,13 @@ hr {
   h1.landing-logo {
     font-size: 42px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 5px;
     color: #FFF;
-    font-family: "Helvetica Neue";
-    text-transform: uppercase;
+    font-family: Cervanttis;
   }
   
   .landing-text {
-    margin-top: 3px;
+    margin-top: 35px;
     text-align: left;
     margin-bottom: 24px;
     line-height: 25px;
@@ -1247,7 +1252,7 @@ hr {
 
   .logoFont a {
     margin-left: 10px;
-    letter-spacing: 8px;
+    letter-spacing: 5px;
   }
 
   .searchBar {
@@ -1675,7 +1680,6 @@ hr {
   width: 289px;
   height: 437px;
   display: inline-block;
-
   transition: background-color 0.3s ease;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
@@ -1683,12 +1687,18 @@ hr {
   position: relative;
 }
 
-.product-container:hover {
-  /* background-color: white;
-    -webkit-box-shadow: 10px 7px 17px -11px rgba(133,125,133,0.62);
-  -moz-box-shadow: 10px 7px 17px -11px rgba(133,125,133,0.62);
-  box-shadow: 10px 7px 17px -11px rgba(133,125,133,0.62); */
+.product-container-admin {
+  margin: 10px 0 10px 0;
+  width: 289px;
+  height: 437px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  border-radius: 5px;
+  position: relative;
 }
+
+
 
 .product-info {
   bottom: 0;
@@ -2069,6 +2079,16 @@ hr {
   line-height: 24px;
 }
 
+.delete-icon {
+  top: -23px;
+  right: 31px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  cursor: pointer;
+}
+
+
 
 
 
@@ -2182,13 +2202,10 @@ hr {
             /* ================                                  MOBILE                                     ======================*/
             /* ===================================================================================================================*/
             @media (min-width: 320px) and (max-width: 734px) {
-              .logoFont a {
-                margin-left: 10px;
-                letter-spacing: 8px;
-              }
+              
 
               .header {
-                height: 40px;
+                height: 32px;
                 background-color: white;
                 border-bottom: 1px solid lightgrey;
               }
@@ -2197,11 +2214,22 @@ hr {
                 width: 25%;
                 height: 10%;
                 position: absolute;
-                top: 25%;
-                left: 43%;
+                top: 20%;
+                left: 48%;
                 transform: translate(-50%, -50%);
                 margin: 0px 0px 0px 0px;
                 display: block;
+              }
+
+              .logoFont {
+                font-size: 1.4em;
+              }
+
+              .logoFont a {
+                margin-left: 10px;
+                letter-spacing: 5px;
+                font-weight: 700;
+                opacity: 0.8;
               }
 
               .landing-overlay {
@@ -2237,7 +2265,7 @@ hr {
               .landing-message {
                 width: 97%;
                 height: 200px;
-                margin-top: 76%;
+                margin-top: 65%;
                 margin-left: 12px;
                 position: absolute;
                 display: block;
@@ -2247,22 +2275,23 @@ hr {
                 top: 0;
                 width: 100%;
                 height: 60px;
-                text-align: left;
+                text-align: center;
               }
               
               h1.landing-logo {
                 font-size: 47px;
                 font-weight: 400;
-                letter-spacing: 1px;
                 color: #FFF;
-                font-family: "Helvetica Neue";
-                text-transform: uppercase;
+                font-family: "Cervanttis";
+                /* text-transform: uppercase; */
                 opacity: .6;
+                font-weight: 700;
+                letter-spacing: 5px;
               }
               
               .landing-text {
-                margin-top: 7px;
-                text-align: left;
+                margin-top: 39px;
+                text-align: center;
                 line-height: 26px;
               }
               
@@ -2276,7 +2305,7 @@ hr {
 
               .landing-footer {
                 margin-top: 2%;
-                text-align: left;
+                text-align: center;
               }
 
               .copyright-symbol {
@@ -2353,7 +2382,6 @@ hr {
                 width: 32px;
                 height: 32px;
                 margin-top: 5px;
-                /* background-image: url('../src/app/img/search-50.png'); */
                 background-size: contain;
                 cursor: pointer;
                 display: inline-block;
@@ -2364,7 +2392,6 @@ hr {
               .loadingH1 {
                 margin-left: 15px;
                 font-size: 1em;
-                /* color: rgb(244, 118, 208); */
                 color: rgb(120, 128, 153);
                 margin-top: 70%;
               }
@@ -2395,7 +2422,7 @@ hr {
               }
 
               .dd-login-menu {
-                top: 52px;
+                top: 44px;
                 width: 100%;
                 height: 100vh;
                 position: absolute;
@@ -3039,7 +3066,7 @@ hr {
             .dd-login-title {
               top: 0;
               right: 4px;
-              width: 53px;
+              width: 47px;
               height: 40px;
               display: inline-block;
               position: absolute;
@@ -3047,9 +3074,9 @@ hr {
             }
 
             .dd-login-button {
-              width: 39px;
-              height: 39px;
-              margin-top: 6px;
+              width: 29px;
+              height: 29px;
+              margin-top: 7px;
               background-image: url('../src/img/mobile_menu.png');
               background-size: contain;
               cursor: pointer;
@@ -3058,9 +3085,9 @@ hr {
             }
 
             .dd-login-button-logged-in {
-              width: 39px;
-              height: 39px;
-              margin-top: 6px;
+              width: 29px;
+              height: 29px;
+              margin-top: 7px;
               background-image: url('../src/img/mobile_menu.png');
               background-size: contain;
               cursor: pointer;

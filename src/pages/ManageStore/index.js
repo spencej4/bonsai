@@ -28,7 +28,7 @@ class ManageStore extends Component {
       }
 
 
-      renderRedirect = (caller) => {
+      renderRedirect = () => {
         if (this.state.redirect) {
             if (this.state.caller === 'add'){
                 return <Redirect to={{
@@ -57,7 +57,7 @@ class ManageStore extends Component {
                 </li>
                 <li className = 'manage-link'>
                     <button className = 'manage-button'
-                            onClick = {() => {this.setRedirect("delete");}}>Delete Product
+                            onClick = {() => {this.setRedirect("delete"); this.props.getProducts();}}>Delete Product
                     </button>
                 </li>
                 <li className = 'manage-link'>
