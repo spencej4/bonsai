@@ -28,6 +28,16 @@ defaultClient.basePath = 'https://connect.squareupsandbox.com';
 // ================================================== end square 
 
 
+if(process.env.NODE_ENV === 'production') {
+  alert('production env detected');
+  router.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    else
+      next()
+  })
+}
+
 //POST request for user registration
 router.post('/register', function(request, response){
       var u = new User({
