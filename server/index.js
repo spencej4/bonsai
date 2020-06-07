@@ -5,7 +5,14 @@ const cors = require('cors');
 const path = require('path');
 var session = require('express-session');
 var cookieParser = require('cookie-parser')
+// temp
+var sslRedirect = require('heroku-ssl-redirect');
 const app = express();
+app.use(sslRedirect());
+// end temp
+
+// original
+// const app = express();
 
 app.set('port', (process.env.PORT || 4000));
 app.use(cors());
