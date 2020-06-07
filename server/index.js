@@ -6,6 +6,7 @@ const path = require('path');
 var session = require('express-session');
 var cookieParser = require('cookie-parser')
 const app = express();
+
 app.set('port', (process.env.PORT || 4000));
 app.use(cors());
 
@@ -40,6 +41,16 @@ mongoose.Promise = global.Promise;
 
 app.use(bodyParser.json());
 app.use('/api', require('./api'));
+
+if(process.env.NODE_ENV === 'production') {
+    alert('production env detected')
+    app.use((req, res, next) => {
+      if (req.header('x-forwarded-proto') !== 'https')
+        res.redirect(`https://${req.header('host')}${req.url}`)
+      else
+        next()
+    })
+  }
 
 
 //init app
