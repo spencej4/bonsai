@@ -386,7 +386,7 @@ a {
   margin-left: 10px;
   letter-spacing: 5px;
   font-weight: 700;
-  opacity: 0.9;
+  opacity: 0.8;
   overflow: visible;
 }
 
@@ -2216,10 +2216,10 @@ hr {
                 width: 25%;
                 height: 10%;
                 position: absolute;
-                top: 20%;
-                left: 48%;
-                transform: translate(-50%, -50%);
-                margin: 0px 0px 0px 0px;
+                /* top: 3%; */
+                left: 34%;
+                /* transform: translate(-50%, -50%); */
+                /* margin: 0px 0px 0px 0px; */
                 display: block;
                 overflow: visible;
               }
@@ -2230,11 +2230,13 @@ hr {
               }
 
               .logoFont a {
-                margin-left: 10px;
+                width: 100%;
+                height: auto;
                 letter-spacing: 5px;
                 font-weight: 700;
                 opacity: 0.8;
                 overflow: visible;
+                line-height: normal;
               }
 
               .landing-overlay {
