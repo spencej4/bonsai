@@ -2226,6 +2226,7 @@ hr {
 
               .logoFont {
                 font-size: 1.4em;
+                overflow: visible;
               }
 
               .logoFont a {
@@ -2233,6 +2234,7 @@ hr {
                 letter-spacing: 5px;
                 font-weight: 700;
                 opacity: 0.8;
+                overflow: visible;
               }
 
               .landing-overlay {
