@@ -9,7 +9,7 @@ class Header extends Component {
                 <div className='header'>
                     <div>
                         <div className='logo'>
-                            <li className='logoFont'><Link to='/'>Bonsai</Link></li>
+                            <li className='logoFont'><Link to='/'><p className='header-logo'>Bonsai</p></Link></li>
                         </div>
                     </div>
 
