@@ -28,10 +28,11 @@ class App extends Component {
       cartQuantity: 0,
       cart: [],
       cartSubtotal: 0,
-      cartContains_id_array: []
+      cartContains_id_array: [],
+      manageStoreSubmenuActive: false
     }
     this.onAdminLogin = this.onAdminLogin.bind(this);
-    this.onManageStoreClick = this.onManageStoreClick.bind(this);
+    this.toggleManageStoreMenu = this.toggleManageStoreMenu.bind(this);
     this.scrollWindow = this.scrollWindow.bind(this);
     this.handleSignInChange = this.handleSignInChange.bind(this);
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
@@ -56,6 +57,7 @@ class App extends Component {
     this.deleteProduct = this.deleteProduct.bind(this);
   }
 
+  
 
   // scroll window to the top
   scrollWindow() {
@@ -437,7 +439,16 @@ class App extends Component {
   }
 
 
-  onManageStoreClick() {
+  toggleManageStoreMenu() {
+    if (!this.state.manageStoreSubmenuActive) {
+      this.setState({
+        manageStoreSubmenuActive: true
+      })
+    } else {
+      this.setState({
+        manageStoreSubmenuActive: false
+      })
+    }
   }
 
   
@@ -486,6 +497,7 @@ class App extends Component {
   }.bind(this));
   }
 
+  
   // admin deletes a product
   deleteProduct(event, productID) {
     event.preventDefault();
@@ -507,15 +519,14 @@ class App extends Component {
         alert('Product successfully deleted!')
         return response.json();
     });
-}
+  }
   
   render() {
-    
     return (
       <Router history={history}>
         <Header 
           adminLogged = {this.state.adminLogged}
-          onManageStoreClick = {this.onManageStoreClick}
+          toggleManageStoreMenu = {this.toggleManageStoreMenu}
           isAuthenticated = {this.state.isAuthenticated}
           log_email = {this.state.log_email}
           onLogoutClick = {this.onLogoutClick}
@@ -526,6 +537,8 @@ class App extends Component {
           cartQuantity = {this.state.cartQuantity}
           calculateCartSubtotal = {this.calculateCartSubtotal}
           scrollWindow = {this.scrollWindow}
+          manageStoreSubmenuActive = {this.state.manageStoreSubmenuActive}
+          deleteProduct = {this.deleteProduct}
         />
         <Routes 
           handleSignInChange = {this.handleSignInChange}

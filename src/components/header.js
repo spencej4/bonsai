@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import { Link, NavLink } from 'react-router-dom';
 import cartImage from '../img/cart-icon.png';
 
@@ -18,8 +17,27 @@ class Header extends Component {
                         {/* admin is logged in */}
                         {/* {(this.props.adminLogged) ? (  */}
                             <li className='headerLinkItem'> 
-                                <NavLink to="/manage-store" className='headerLink' activeclassname="active"
-                                        onClick={() => this.props.onManageStoreClick()}>Manage Store</NavLink>
+                                <Link 
+                                // to="/manage-store" 
+                                className='headerLink' 
+                                // activeclassname="active"
+                                        onClick={() => this.props.toggleManageStoreMenu()}>Manage Store
+                                </Link>
+                                {(this.props.manageStoreSubmenuActive) ? (
+                                    <div id = 'manageStoreSubmenuContainer'>
+                                        <Link to='/manage-store/add-product'
+                                              onClick = {() => {this.props.toggleManageStoreMenu();}}>
+                                            <li className = 'submenuLink'>Add a Product</li>
+                                        </Link>
+                                        <Link to='/manage-store/delete-product'
+                                              onClick = {() => {this.props.toggleManageStoreMenu(); this.props.getProducts();}}>
+                                            <li className = 'submenuLink'>Delete a Product</li>
+                                        </Link>
+                                        <Link to='/manage-store/modify-product'>
+                                            <li className = 'submenuLink'>Edit a Product</li>
+                                        </Link>
+                                    </div>
+                                ) : null}
                             </li>
                         {/* ) : null } */}
                         <li className='headerLinkItem'> 

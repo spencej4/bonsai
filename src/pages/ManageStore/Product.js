@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import deleteIcon from '../../img/delete.png'; 
 
 class Product extends Component {   
@@ -10,6 +9,7 @@ class Product extends Component {
                 >
                     <img src={deleteIcon}
                          className='delete-icon'
+                         alt='delete-product-icon'
                          onClick={(event) => {this.props.deleteProduct(event, this.props._id);}}
                     >
                     </img>
