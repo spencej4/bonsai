@@ -15,13 +15,10 @@ class Header extends Component {
 
                     <div className='headerLinksContainer'>
                         {/* admin is logged in */}
-                        {/* {(this.props.adminLogged) ? (  */}
+                        {(this.props.adminLogged) ? ( 
                             <li className='headerLinkItem'> 
-                                <Link 
-                                // to="/manage-store" 
-                                className='headerLink' 
-                                // activeclassname="active"
-                                        onClick={() => this.props.toggleManageStoreMenu()}>Manage Store
+                                <Link className='headerLink' 
+                                      onClick={() => this.props.toggleManageStoreMenu()}>Manage Store
                                 </Link>
                                 {(this.props.manageStoreSubmenuActive) ? (
                                     <div id = 'manageStoreSubmenuContainer'>
@@ -39,7 +36,7 @@ class Header extends Component {
                                     </div>
                                 ) : null}
                             </li>
-                        {/* ) : null } */}
+                         ) : null } 
                         <li className='headerLinkItem'> 
                             <NavLink to="/store" className='headerLink' activeclassname="active"
                                      onClick={() => this.props.getProducts()}>Store</NavLink>

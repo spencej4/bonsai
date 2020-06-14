@@ -476,11 +476,10 @@ class App extends Component {
 
   onShippingFormSubmit(event) {
     event.preventDefault();
-    console.log('shipping form success')
+    // console.log('shipping form success')
   }
 
   onSuccessfullPayment() {
-    console.log('successful payment seen by app.js')
     this.setState({
       new_payment_success: true
     })
@@ -508,7 +507,7 @@ class App extends Component {
     }).then(function(response){
       // could not add shipping info 
       if (response.status !== 200) {
-        alert('problem adding new product');
+        // alert('problem posting form');
         return response.json();
       } else {
         // successfull shipping info 
@@ -516,9 +515,6 @@ class App extends Component {
       }
     })
     .then(function(data){
-      console.log('Successfully saved shipping information!')
-      console.log(`Order Confirmation ID #: ${data}`);
-      
       this.setState({
         new_order_success_confirmation_number: data,
         shipping_email: null,
