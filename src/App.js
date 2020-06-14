@@ -29,6 +29,8 @@ class App extends Component {
       cart: [],
       cartSubtotal: 0,
       cartContains_id_array: [],
+      new_payment_success: false,
+      new_order_success_confirmation_number: null,
       manageStoreSubmenuActive: false
     }
     this.onAdminLogin = this.onAdminLogin.bind(this);
@@ -52,6 +54,9 @@ class App extends Component {
     this.removeProductFromCart = this.removeProductFromCart.bind(this);
     this.calculateCartSubtotal = this.calculateCartSubtotal.bind(this);
     this.onCheckoutClick = this.onCheckoutClick.bind(this);
+    this.handleShippingFormChange = this.handleShippingFormChange.bind(this);
+    this.onShippingFormSubmit = this.onShippingFormSubmit.bind(this);
+    this.onSuccessfullPayment = this.onSuccessfullPayment.bind(this);
     this.handleAddProductChange = this.handleAddProductChange.bind(this);
     this.onAddProductSubmit = this.onAddProductSubmit.bind(this);
     this.deleteProduct = this.deleteProduct.bind(this);
@@ -461,6 +466,74 @@ class App extends Component {
   }
 
 
+  handleShippingFormChange(event) {
+    // event.preventDefault();
+    this.setState({ 
+     [event.target.name]: event.target.value,
+   });
+ }
+
+
+  onShippingFormSubmit(event) {
+    event.preventDefault();
+    console.log('shipping form success')
+  }
+
+  onSuccessfullPayment() {
+    console.log('successful payment seen by app.js')
+    this.setState({
+      new_payment_success: true
+    })
+
+       fetch('/api/add-shipping-information',{
+      method: 'POST',
+      mode: "cors",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: "same-origin",
+      body: JSON.stringify({
+        shipping_email: this.state.shipping_email,
+        shipping_name_first: this.state.shipping_name_first,
+        shipping_name_last: this.state.shipping_name_last,
+        shipping_street_address: this.state.shipping_street_address,
+        shipping_apt_unit: this.state.shipping_apt_unit,
+        shipping_city: this.state.shipping_city,
+        shipping_state: this.state.shipping_state,
+        shipping_zipcode: this.state.shipping_zipcode,
+        cart: this.state.cart
+      }) 
+    }).then(function(response){
+      // could not add shipping info 
+      if (response.status !== 200) {
+        alert('problem adding new product');
+        return response.json();
+      } else {
+        // successfull shipping info 
+        return response.json();
+      }
+    })
+    .then(function(data){
+      console.log('Successfully saved shipping information!')
+      console.log(`Order Confirmation ID #: ${data}`);
+      
+      this.setState({
+        new_order_success_confirmation_number: data,
+        shipping_email: null,
+        shipping_name_first: null,
+        shipping_name_last: null,
+        shipping_street_address: null,
+        shipping_apt_unit: null,
+        shipping_city: null,
+        shipping_state: null,
+        shipping_zipcode: null,
+        cart: []
+      })
+    }.bind(this));
+  }
+
+
   // admin adds a product to db
   onAddProductSubmit(event) {
     event.preventDefault();
@@ -521,6 +594,7 @@ class App extends Component {
     });
   }
   
+
   render() {
     return (
       <Router history={history}>
@@ -567,6 +641,11 @@ class App extends Component {
           removeProductFromCart = {this.removeProductFromCart}
           cartContains_id_array = {this.state.cartContains_id_array}
           onCheckoutClick = {this.onCheckoutClick}
+          handleShippingFormChange = {this.handleShippingFormChange}
+          onShippingFormSubmit = {this.onShippingFormSubmit}
+          onSuccessfullPayment = {this.onSuccessfullPayment}
+          new_payment_success = {this.state.new_payment_success}
+          new_order_success_confirmation_number = {this.state.new_order_success_confirmation_number}
           handleAddProductChange = {this.handleAddProductChange}
           new_product_name = {this.state.new_product_name}
           new_product_price = {this.state.new_product_price}

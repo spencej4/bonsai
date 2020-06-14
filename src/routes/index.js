@@ -9,6 +9,7 @@ import SignInPage from '../pages/SignIn';
 import Register from '../pages/Register';
 import ViewProduct from '../pages/Store/ViewProduct';
 import Cart from '../pages/Cart';
+import Shipping from '../pages/Shipping';
 import PaymentPage from '../pages/PaymentPage';
 import ManageStore from '../pages/ManageStore';
 import AddProduct from '../pages/ManageStore/AddProduct';
@@ -66,6 +67,7 @@ class Routes extends Component {
                                 />
                     }
           />
+
           <Route exact path='/cart/'
             render = {(props) => <Cart {...props}
                                     products = {this.props.products}
@@ -80,9 +82,22 @@ class Routes extends Component {
                                   />
                       }
           />
+
+          <Route path= '/shipping'
+                      render = {(props) => <Shipping {...props}
+                                              handleShippingFormChange = {this.props.handleShippingFormChange}
+                                              onShippingFormSubmit = {this.props.onShippingFormSubmit}
+                                              cartSubtotal = {this.props.cartSubtotal}
+                                            />
+                                }
+          />
+
           <Route path= '/process-payment'
             render = {(props) => <PaymentPage {...props}
                                     cartSubtotal = {this.props.cartSubtotal}
+                                    onSuccessfullPayment = {this.props.onSuccessfullPayment}
+                                    new_payment_success = {this.props.new_payment_success}
+                                    new_order_success_confirmation_number = {this.props.new_order_success_confirmation_number}
                                   />
                       }
           />

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // const Square = ({ paymentForm, cartSubtotal }) => {
-const Square = ({ paymentForm, cartSubtotal }) => {
+const Square = ({ paymentForm, cartSubtotal, onSuccessfullPayment }) => {
     // Build your sqPaymentForm here
     // Set the application ID
     const applicationId = process.env.REACT_APP_APLLICATION_ID;
@@ -30,10 +30,16 @@ const Square = ({ paymentForm, cartSubtotal }) => {
             })
         })
             .then(response => {
-            console.log(response);
-            response.json().then(data => {
+                console.log(response);
+                response.json()
+            .then(data => {
                 console.log(data);
-                alert(JSON.stringify(data));
+                // response data title reads: "Payment Successful"
+                if(data.title === 'Payment Successful') {
+                    // calls function in app.js
+                    onSuccessfullPayment();
+                }
+                // alert(JSON.stringify(data));
             });
             })
             .catch(function(error) {
@@ -93,11 +99,10 @@ const Square = ({ paymentForm, cartSubtotal }) => {
                 // Log errors from nonce generation to the browser developer console.
                 console.error("Encountered errors:");
                 errors.forEach(function(error) {
-                console.error("  " + error.message);
+                    console.error("  " + error.message);
                 });
-                alert(
-                "Encountered errors, check browser developer console for more details"
-                );
+                // amend this to alert user of bad payment process
+                alert( "Encountered errors, check browser developer console for more details");
                 return;
             }
 

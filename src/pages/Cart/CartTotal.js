@@ -18,7 +18,7 @@ class CartTotal extends Component {
       renderRedirect = () => {
         if (this.state.redirect) {
           return <Redirect to={{
-                    pathname: '/process-payment',
+                    pathname: '/shipping',
                     state: {cartSubtotal: this.props.cartSubtotal}
                   }}/>
         }
