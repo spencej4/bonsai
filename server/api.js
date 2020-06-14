@@ -2,7 +2,8 @@ const express= require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const User =  require('./models/user.js');
-const Products = require('./models/products.js')
+const Products = require('./models/products.js');
+const Orders = require('./models/orders.js');
 // ==================================================== square:
 const crypto = require('crypto');
 const squareConnect = require('square-connect');
@@ -90,6 +91,24 @@ router.get('/products/:query', function (request, response) {
       return response
     }
   });
+})
+
+router.post('/add-shipping-information', async (request, response, next) => {
+ Orders.save_new_order(request.body.shipping_email, request.body.shipping_name_first, request.body.shipping_name_last,
+    request.body.shipping_street_address, request.body.shipping_apt_unit, request.body.shipping_city, request.body.shipping_state,
+    request.body.shipping_zipcode, request.body.cart,
+    function (error, newOrder) {
+      if (error || !newOrder) {
+        var err = new Error('Error adding new order');
+        err.status = 401;
+        return next(err)
+      } else {
+        let newOrder_confirmation_id = newOrder;
+        console.log(newOrder_confirmation_id)
+        response.json(newOrder_confirmation_id)
+        return response;
+      }
+    })
 })
 
 

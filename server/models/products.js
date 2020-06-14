@@ -33,7 +33,6 @@ ProductSchema.statics.findAll = function (products, callback) {
 
 // add a product to database
 ProductSchema.statics.add_product = function(product, price, description, image, callback) {
-  let id = {"id": 7}
   Products.findOneAndUpdate(
     { "temp": "testing"},      
     {"$push": {"products": { product, price, description, image }}},

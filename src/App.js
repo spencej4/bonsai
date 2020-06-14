@@ -485,7 +485,8 @@ class App extends Component {
       new_payment_success: true
     })
 
-       fetch('/api/add-shipping-information',{
+    // post new order to db
+    fetch('/api/add-shipping-information',{
       method: 'POST',
       mode: "cors",
       headers: {
