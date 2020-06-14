@@ -177,7 +177,8 @@ class App extends Component {
       isAuthenticated: false,
       log_email: '',
       user_ID: '', 
-      loginError: false
+      loginError: false,
+      adminLogged: false
     }) 
     if (caller === 'mobile') {
       this.toggleLoginMenu();
@@ -441,7 +442,7 @@ class App extends Component {
     this.setState({
       adminLogged: true
     })
-  }
+  } 
 
 
   toggleManageStoreMenu() {
