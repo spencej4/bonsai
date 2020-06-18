@@ -6,36 +6,39 @@ import LoggedInMessage from './LoggedInMessage';
 class SignInPage extends Component {
     render() {
         return (
-            <div className='sign-in-page'>
-                { (!this.props.isAuthenticated) ? 
-                    (<SignInForm
-                        handleSignInChange = {this.props.handleSignInChange}
-                        onLoginSubmit = {this.props.onLoginSubmit}
-                        loginError= {this.props.loginError}
-                        >
-                    </SignInForm>) : <LoggedInMessage
-                                        log_email = {this.props.log_email}
-                                        // can add call to action button here...
-                                        // onViewCollectionClick={this.props.onViewCollectionClick}
-                                     >
-                                    </LoggedInMessage>}
+            // fix this...
+            // <div className='content-wrap'>
+                <div className='sign-in-page'>
+                    { (!this.props.isAuthenticated) ? 
+                        (<SignInForm
+                            handleSignInChange = {this.props.handleSignInChange}
+                            onLoginSubmit = {this.props.onLoginSubmit}
+                            loginError= {this.props.loginError}
+                            >
+                        </SignInForm>) : <LoggedInMessage
+                                            log_email = {this.props.log_email}
+                                            // can add call to action button here...
+                                            // onViewCollectionClick={this.props.onViewCollectionClick}
+                                        >
+                                        </LoggedInMessage>}
 
-                { (!this.props.isAuthenticated) ?  (                 
-                    <div className='register right'>
-                        <div className='sign-in-title'>Register</div>
-                        <div className='float-right-sign-in-page-container'>
-                            <Link to="/register">
-                                <button type="button"
-                                        className='action-btn'
-                                        onClick = {this.props.clearAuthenticationErrors}>
-                                    Register
-                                </button>
-                            </Link>
+                    { (!this.props.isAuthenticated) ?  (                 
+                        <div className='register right'>
+                            <div className='sign-in-title'>Register</div>
+                            <div className='float-right-sign-in-page-container'>
+                                <Link to="/register">
+                                    <button type="button"
+                                            className='action-btn'
+                                            onClick = {this.props.clearAuthenticationErrors}>
+                                        Register
+                                    </button>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                // ) : (<RegisteredMessage /> )}
-                    ) : null }
-            </div>
+                    // ) : (<RegisteredMessage /> )}
+                        ) : null }
+                </div>
+            // </div>
         )
     }
 }

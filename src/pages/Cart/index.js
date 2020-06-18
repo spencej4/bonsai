@@ -13,21 +13,21 @@ class Cart extends Component {
         } else {
             return (
                 <React.Fragment>
-                <div className='cart-container'>
-                    <CartContainer
-                        cart = {this.props.cart}
-                        removeProductFromCart = {this.props.removeProductFromCart}
-                    />
-                </div>
-                <div className = 'cart-total-container'>
-                    <CartTotal 
-                        cart = {this.props.cart}
-                        cartQuantity = {this.props.cartQuantity}
-                        cartSubtotal = {this.props.cartSubtotal}
-                        calculateCartSubtotal = {this.props.calculateCartSubtotal}
-                        onCheckoutClick = {this.props.onCheckoutClick}
-                    />
-                </div>
+                        <div className='cart-container'>
+                            <CartContainer
+                                cart = {this.props.cart}
+                                removeProductFromCart = {this.props.removeProductFromCart}
+                            />
+                        </div>
+                        <div className = 'cart-total-container'>
+                            <CartTotal 
+                                cart = {this.props.cart}
+                                cartQuantity = {this.props.cartQuantity}
+                                cartSubtotal = {this.props.cartSubtotal}
+                                calculateCartSubtotal = {this.props.calculateCartSubtotal}
+                                onCheckoutClick = {this.props.onCheckoutClick}
+                            />
+                        </div>
                 </React.Fragment>
             )
         }

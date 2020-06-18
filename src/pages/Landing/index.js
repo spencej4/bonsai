@@ -25,23 +25,22 @@ class Landing extends Component   {
 
   render () {
       return (
-          <div className='landing'>
-              {/* owns background image */}
-            <div className='landing-overlay'>
-                <div className='landing-message'>
-                <div className='landing-logo'>
-                    <h1 className='landing-logo'>Bonsai</h1>
+        <div className='content-wrap'>
+            <div className='landing'>
+                {/* owns background image */}
+                <div className='landing-overlay'>
+                    <div className='landing-message'>
+                        <div className='landing-logo'>
+                            <h1 className='landing-logo'>Bonsai</h1>
+                        </div>
+                        <div className='landing-text'>
+                            <p>Sartorial literally wayfarers chambray fixie intelligentsia
+                                <br></br>
+                                Single-origin coffee mixtape leggings.</p>
+                        </div>
+                    </div>
                 </div>
-                <div className='landing-text'>
-                    <p>Sartorial literally wayfarers chambray fixie intelligentsia
-                        <br></br>
-                        Single-origin coffee mixtape leggings.</p>
-                </div>
-                <div className='landing-footer'>
-                    <p className='copyright-symbol'>©</p><p>Copyright 2020 Spencer Jack</p>
-                </div>
-                </div>
-          </div>
+            </div>
         </div>
       )
   }

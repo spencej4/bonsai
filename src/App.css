@@ -104,8 +104,7 @@ body {
   font-weight: 100;
   line-height: 1;
   background-color: #FFF;
-  /* testing 04/30/20 */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 input:focus,
@@ -118,6 +117,7 @@ button:focus {
 .App {
   text-align: center;
   background-color: #FFF;
+  /* padding-bottom: 130px; */
 }
 
 .header {
@@ -407,6 +407,76 @@ a {
   font-weight: 100;
 }
 
+#root {
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+  /* padding-bottom: 83px; */
+}
+
+.content-wrap {
+  height: 100%;
+  min-height: 100%;
+  padding-bottom: 130px;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 130px;
+  text-align: center;
+  background-color: rgba(59, 49, 54, 0.8);
+  position: absolute;
+}
+
+.footer-container {
+  width: 100vw;
+  height: 100%;
+  text-align: center;
+}
+
+.copyright-symbol {
+  margin-top: 50px;
+  font-weight: 100;
+  font-size: 20px;
+  color: #FFF;
+  font-family: "Helvetica Neue";
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-text {
+  display: inline-block;
+  color: #FFF;
+  font-size: 20px;
+}
+
+.footer-logo-container {
+  top: 0;
+  left: 16px;
+  margin: 45px 0px 0px 0px;
+  display: block;
+  position: relative;
+  float: left;
+  overflow: visible;
+}
+
+.footer-logo {
+  top: 0;
+  margin-left: 20px;
+  letter-spacing: 5px;
+  font-size: 1.4em;
+  font-weight: 700;
+  opacity: 0.8;
+  position: absolute;
+  font-family: Cervanttis;
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+}
+
+
+
 /* ----------------------------deactivated for mobile------------------------ */
 .dd-login-title {
   top: 0;
@@ -609,14 +679,6 @@ hr {
   }
 }
 
-.footer {
-  width: 100%;
-  height: 20%;
-  display: inline-block;
-  position: relative;
-  bottom: 20;
-}
-
 .loadMoreButton {
   width: 25%;
   height: 45px;
@@ -803,14 +865,6 @@ hr {
     text-align: left;
   }
 
-  .copyright-symbol {
-    font-weight: 100;
-    font-size: 20px;
-    color: #FFF;
-    font-family: "Helvetica Neue";
-    display: inline-block;
-  }
-
   .landing-footer p {
     font-weight: 200;
     font-size: 18px;
@@ -878,7 +932,6 @@ hr {
     margin-top: 100px;
     display: block;
     position: absolute;
-    content: contain;
     text-align: left;
     background-color: white;
     z-index: 1;
@@ -1203,7 +1256,7 @@ hr {
   .landing-overlay {
     width: 100%;
     width: 100%;
-    height: 644px;
+    height: 693px;
     background-color: rgba( 0,0,0, .4);
     position: absolute;
   }
@@ -1211,7 +1264,7 @@ hr {
   .landing {
     /* top: 58px;/ */
     width: 100%;
-    height: 644px;
+    height: 693px;
     background-image: url('../src/img/succulent.jpeg');
     background-position: center;
     background-repeat: no-repeat;
@@ -1606,14 +1659,6 @@ hr {
     opacity: 1;
   }
 
-  .footer {
-    width: 100%;
-    height: 15%;
-    display: inline-block;
-    position: relative;
-    bottom: 0
-  }
-
   .loadMoreButton {
     width: 25%;
     height: 45px;
@@ -1642,7 +1687,7 @@ hr {
   /* ===================================STORE=================================== */
 .store-container {
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 110px 0 0 0;
   padding: 0 0% 0 0%;
   text-align: center;
@@ -1734,6 +1779,7 @@ hr {
 }
 
 .current-product-container {
+  height: 100vh;
   margin: 138px 18px 0 100px;
 }
 
@@ -1834,7 +1880,7 @@ hr {
 /* ===================================== CART ======================================= */
 .cart-container {
   width: 60vw;
-  height: 100vh;
+  height: 100%;
   margin: 138px 18px 0 100px;
   float: left;
 }
@@ -2235,20 +2281,25 @@ hr {
     top: 0%;
   }
 
-  .footer {
+  /* .footer {
     width: 100%;
     height: 3%;
     display: inline-block;
     position: relative;
     bottom: 0;
     text-align: center;
-  }
+  } */
 }
 
             /* ===================================================================================================================*/
             /* ================                                  MOBILE                                     ======================*/
             /* ===================================================================================================================*/
             @media (min-width: 320px) and (max-width: 734px) {
+              
+              #root {
+                padding-bottom: 0;
+              }
+
               
 
               .header {
@@ -2354,14 +2405,6 @@ hr {
               .landing-footer {
                 margin-top: 2%;
                 text-align: center;
-              }
-
-              .copyright-symbol {
-                font-weight: 100;
-                font-size: 20px;
-                color: #FFF;
-                font-family: "Helvetica Neue";
-                display: inline-block;
               }
 
               .landing-footer p {
@@ -2949,10 +2992,9 @@ hr {
               }
 
               .footer {
-                clear: both;
-                position: relative;
-                height: 180px;
-                margin-bottom: 20px;
+                bottom: 0;
+                position: absolute;;
+                height: 130px;
               }
 
               .footer-container {
@@ -2962,6 +3004,48 @@ hr {
                 position: relative;
                 z-index: 1;
               }
+
+              .footer-logo-container {
+                top: 0;
+                left: 0;
+                width: 100%;
+                margin: 26px 0px 0px 0px;
+                display: block;
+                position: relative;
+                overflow: visible;
+              }
+
+              .footer-logo {
+                left: 0;
+                letter-spacing: 5px;
+                font-size: 1.4em;
+                font-weight: 700;
+                opacity: 0.8;
+                font-family: Cervanttis;
+                display: inline-block;
+                position: relative;
+                text-decoration: none;
+                color: #FFF;
+              }
+              
+              .copyright-symbol {
+                margin-top: 22px;
+                font-weight: 100;
+                font-size: 15px;
+                color: #FFF;
+                font-family: "Helvetica Neue";
+                display: inline-block;
+              }
+
+              .footer-text {
+                display: inline-block;
+                color: #FFF;
+                font-size: 15px;
+              }
+
+
+
+
 
               .right {
                 float: right;

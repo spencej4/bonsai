@@ -4,6 +4,7 @@ import StoreContainer from './StoreContainer';
 class Store extends Component {
   render() {
     return (
+      <div className='content-wrap'>
         <div className='store-container'>
           <StoreContainer
             products = {this.props.products}
@@ -11,6 +12,7 @@ class Store extends Component {
             addProductToCart = {this.props.addProductToCart}
           />
         </div>
+      </div>
     )
   }
 }

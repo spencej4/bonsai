@@ -4,6 +4,7 @@ import { Router } from 'react-router-dom';
 import history from './services/history';
 import Header from './components/header';
 import Routes from './routes';
+import Footer from './components/footer';
 import '../src/fonts/Cervanttis.ttf';
 
 
@@ -653,6 +654,7 @@ class App extends Component {
           getProducts = {this.getProducts}
           deleteProduct = {this.deleteProduct}
         />
+        <Footer></Footer>
       </Router>
     );
   }
