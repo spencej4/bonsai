@@ -29,6 +29,12 @@
 ###   -Mobile menu and link routing
 
 
+# To switch from dev to production for Square payments (sandbox to real money):
+###  -/pages/PaymentPage/ index.js
+###     - change base url
+### -api.js
+###     - change base url
+
 # To - Do:
 ###  -- Add auth check for login as Admin
 

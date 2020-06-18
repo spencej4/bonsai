@@ -93,6 +93,7 @@ router.get('/products/:query', function (request, response) {
   });
 })
 
+
 router.post('/add-shipping-information', async (request, response, next) => {
  Orders.save_new_order(request.body.shipping_email, request.body.shipping_name_first, request.body.shipping_name_last,
     request.body.shipping_street_address, request.body.shipping_apt_unit, request.body.shipping_city, request.body.shipping_state,
