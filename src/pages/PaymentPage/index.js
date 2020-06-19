@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Square from './Square';
 
 
-const PaymentPage = ({ cartSubtotal, onSuccessfullPayment, new_payment_success, new_order_success_confirmation_number }) => {
+const PaymentPage = ({ cartSubtotal, shipping_form_is_valid, shipping_email, shipping_name_first, shipping_name_last, shipping_street_address, shipping_apt_unit, shipping_city, shipping_state, shipping_zipcode, onSuccessfullPayment, new_payment_success, new_order_success_confirmation_number}) => {
   const [isLoad, setLoad] = useState(false);
   useEffect(() => {
     let sqPaymentScript = document.createElement("script");
@@ -16,6 +16,47 @@ const PaymentPage = ({ cartSubtotal, onSuccessfullPayment, new_payment_success, 
     };
     document.getElementsByTagName("head")[0].appendChild(sqPaymentScript);
   });
+
+  const shippingDetails = shipping_form_is_valid ? (
+    <div className = 'shipping-details'>
+      <h1>Shipping Details:</h1>
+      <ul className = 'shipping-list-items'>
+        <li className = 'shipping-detail'>
+          <p className = 'shipping-key'>Email:</p>
+          <p className = 'shipping-value'>{shipping_email}</p>
+        </li>
+        <li className = 'shipping-detail'>
+          <p className = 'shipping-key'>First:</p> 
+          <p className = 'shipping-value'>{shipping_name_first}</p>
+        </li>
+        <li className = 'shipping-detail'>
+          <p className = 'shipping-key'>Last:</p>
+          <p className = 'shipping-value'>{shipping_name_last}</p>
+        </li>
+        <li className = 'shipping-detail'>
+          <p className = 'shipping-key'>Address:</p>
+          <p className = 'shipping-value'>{shipping_street_address}</p>
+        </li>
+        <li className = 'shipping-detail'>
+          <p className = 'shipping-key'>Apt/Unit:</p>
+          <p className = 'shipping-value'>{shipping_apt_unit}</p>
+        </li>
+        <li className = 'shipping-detail'>
+          <p className = 'shipping-key'>City:</p>
+          <p className = 'shipping-value'>{shipping_city}</p>
+        </li>
+        <li className = 'shipping-detail'>
+          <p className = 'shipping-key'>State:</p>
+          <p className = 'shipping-value'>{shipping_state}</p>
+        </li>
+        <li className = 'shipping-detail'>
+          <p className = 'shipping-key'>Zipcode:</p>
+          <p className = 'shipping-value'>{shipping_zipcode}</p>
+        </li>
+        
+      </ul>
+    </div>
+  ) : (null)
 
   const squarePayment = (isLoad && !new_payment_success) ? (
         <Square 
@@ -39,6 +80,7 @@ const PaymentPage = ({ cartSubtotal, onSuccessfullPayment, new_payment_success, 
   return (
         
         <div className="App">
+            { shippingDetails }
             { squarePayment }
             { successMessage }
         </div>

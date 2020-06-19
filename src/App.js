@@ -30,6 +30,17 @@ class App extends Component {
       cart: [],
       cartSubtotal: 0,
       cartContains_id_array: [],
+
+      shipping_email: null,
+      shipping_name_first: null,
+      shipping_name_last: null,
+      shipping_street_address: null,
+      shipping_apt_unit: null,
+      shipping_city: null,
+      shipping_state: null,
+      shipping_zipcode: null,
+      shipping_form_is_valid: false,
+
       new_payment_success: false,
       new_order_success_confirmation_number: null,
       manageStoreSubmenuActive: false
@@ -479,7 +490,11 @@ class App extends Component {
   onShippingFormSubmit(event) {
     event.preventDefault();
     // console.log('shipping form success')
+    this.setState({
+      shipping_form_is_valid: true
+    })
   }
+
 
   onSuccessfullPayment() {
     this.setState({
@@ -641,7 +656,16 @@ class App extends Component {
           cartContains_id_array = {this.state.cartContains_id_array}
           onCheckoutClick = {this.onCheckoutClick}
           handleShippingFormChange = {this.handleShippingFormChange}
+          shipping_email = {this.state.shipping_email}
+          shipping_name_first = {this.state.shipping_name_first}
+          shipping_name_last = {this.state.shipping_name_last}
+          shipping_street_address = {this.state.shipping_street_address}
+          shipping_apt_unit = {this.state.shipping_apt_unit}
+          shipping_city = {this.state.shipping_city}
+          shipping_state = {this.state.shipping_state}
+          shipping_zipcode = {this.state.shipping_zipcode}
           onShippingFormSubmit = {this.onShippingFormSubmit}
+          shipping_form_is_valid = {this.state.shipping_form_is_valid}
           onSuccessfullPayment = {this.onSuccessfullPayment}
           new_payment_success = {this.state.new_payment_success}
           new_order_success_confirmation_number = {this.state.new_order_success_confirmation_number}

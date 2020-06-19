@@ -88,6 +88,14 @@ class Routes extends Component {
                                               handleShippingFormChange = {this.props.handleShippingFormChange}
                                               onShippingFormSubmit = {this.props.onShippingFormSubmit}
                                               cartSubtotal = {this.props.cartSubtotal}
+                                              shipping_email = {this.props.shipping_email}
+                                              shipping_name_first = {this.props.shipping_name_first}
+                                              shipping_name_last = {this.props.shipping_name_last}
+                                              shipping_street_address = {this.props.shipping_street_address}
+                                              shipping_apt_unit = {this.props.shipping_apt_unit}
+                                              shipping_city = {this.props.shipping_city}
+                                              shipping_state = {this.props.shipping_state}
+                                              shipping_zipcode = {this.props.shipping_zipcode}
                                             />
                                 }
           />
@@ -95,6 +103,15 @@ class Routes extends Component {
           <Route path= '/process-payment'
             render = {(props) => <PaymentPage {...props}
                                     cartSubtotal = {this.props.cartSubtotal}
+                                    shipping_form_is_valid = {this.props.shipping_form_is_valid}
+                                    shipping_email = {this.props.shipping_email}
+                                    shipping_name_first = {this.props.shipping_name_first}
+                                    shipping_name_last = {this.props.shipping_name_last}
+                                    shipping_street_address = {this.props.shipping_street_address}
+                                    shipping_apt_unit = {this.props.shipping_apt_unit}
+                                    shipping_city = {this.props.shipping_city}
+                                    shipping_state = {this.props.shipping_state}
+                                    shipping_zipcode = {this.props.shipping_zipcode}
                                     onSuccessfullPayment = {this.props.onSuccessfullPayment}
                                     new_payment_success = {this.props.new_payment_success}
                                     new_order_success_confirmation_number = {this.props.new_order_success_confirmation_number}

@@ -119,6 +119,9 @@ const Square = ({ paymentForm, cartSubtotal, onSuccessfullPayment }) => {
 
     return (
         <div id="form-container">
+            <div className = 'complete-your-payment-title'>
+                <h1>Complete Your Payment</h1>
+            </div>
             <div id="sq-ccbox">
                 <form id="nonce-form" noValidate>
                         <div id="sq-card-number"></div>

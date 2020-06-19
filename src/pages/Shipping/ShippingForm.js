@@ -3,7 +3,9 @@ import { Redirect } from 'react-router-dom'
 
 class ShippingForm extends Component {
   state = {
-    redirect: false
+    redirect: false,
+    formError: false,
+    errorMessage: "Please Check Form for Errors"
   }
 
 
@@ -23,6 +25,43 @@ class ShippingForm extends Component {
     }
   }
 
+  validateForm(event) {
+    event.preventDefault();
+    let formElements = {
+      shipping_email: this.props.shipping_email,
+      shipping_name_first: this.props.shipping_name_first,
+      shipping_name_last: this.props.shipping_name_last,
+      shipping_street_address: this.props.shipping_street_address,
+      shipping_apt_unit: this.props.shipping_apt_unit,
+      shipping_city: this.props.shipping_city,
+      shipping_state: this.props.shipping_state,
+      shipping_zipcode: this.props.shipping_zipcode
+    }
+
+    console.log(formElements)
+
+    Object.keys(formElements).forEach(key => {
+      console.log(`key: ${key}, value: ${formElements[key]}`)
+  
+      if (formElements[key] === null) {
+        document.getElementById(key).style.border = "1px solid red"
+        document.getElementById(key).style.borderRadius = "5px";
+
+        this.setState({
+          formError: true
+        })
+      }
+    })
+
+    if (!this.state.formError) {
+      this.props.onShippingFormSubmit(event);
+      this.setRedirect();
+    }
+
+  
+  }
+  
+
   render() {
     return (
       <div className='content-wrap'>
@@ -32,7 +71,7 @@ class ShippingForm extends Component {
           <form id='add-product-form'
                 action = " "
                 method = " "
-                onSubmit={(event) => {this.props.onShippingFormSubmit(event); this.setRedirect();}}
+                onSubmit={(event) => {this.validateForm(event)}}
           >   
               <div className='input-field-container form-row'>
                 <label>Email
@@ -142,6 +181,14 @@ class ShippingForm extends Component {
               <div className='form-row'>
                   <button type='submit' className='submit-btn'>Submit and Checkout</button>
               </div>
+              {(this.state.formError ? (
+                <div className = 'form-row'>
+                  <div className = 'form-error'>
+                    <p className = 'error'>{this.state.errorMessage}</p>
+                  </div>
+                </div>
+              ) : null)}
+              
           </form>
         </div>
       </div>
