@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 
 class ShippingForm extends Component {
-  state = {
-    redirect: false,
-    formError: false,
-    errorMessage: "Please Check Form for Errors"
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirect: false,
+      formError: false,
+      errorMessage: "Please Check Form for Errors"
+    }
   }
-
-
+   
   setRedirect = () => {
     this.setState({
       redirect: true
@@ -25,8 +27,10 @@ class ShippingForm extends Component {
     }
   }
 
+
   validateForm(event) {
     event.preventDefault();
+
     let formElements = {
       shipping_email: this.props.shipping_email,
       shipping_name_first: this.props.shipping_name_first,
@@ -38,11 +42,8 @@ class ShippingForm extends Component {
       shipping_zipcode: this.props.shipping_zipcode
     }
 
-    console.log(formElements)
-
-    Object.keys(formElements).forEach(key => {
-      console.log(`key: ${key}, value: ${formElements[key]}`)
-  
+    // check if values for form inputs are null
+    Object.keys(formElements).forEach(key => {  
       if (formElements[key] === null) {
         document.getElementById(key).style.border = "1px solid red"
         document.getElementById(key).style.borderRadius = "5px";
@@ -53,12 +54,17 @@ class ShippingForm extends Component {
       }
     })
 
-    if (!this.state.formError) {
-      this.props.onShippingFormSubmit(event);
-      this.setRedirect();
-    }
-
   
+    setTimeout(
+      function() {
+        if (this.state.formError === false) {
+          this.props.onShippingFormSubmit(event);
+          this.setRedirect();
+        }
+      }
+      .bind(this),
+      1000
+    );
   }
   
 

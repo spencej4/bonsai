@@ -1927,8 +1927,8 @@ hr {
 .cart-container {
   width: 60vw;
   height: 100%;
-  margin: 138px 18px 0 100px;
-  float: left;
+  margin: 138px 18px 138px 100px;
+  /* float: left; */
 }
 
 .cart-list-item {
@@ -1936,7 +1936,7 @@ hr {
 }
 
 .cart-product-container {
-  width: 60vw;
+  width: 50vw;
   height: 150px;
   padding-top: 20px;
   padding-bottom: 25px;
@@ -2017,11 +2017,13 @@ hr {
 }
 
 .cart-total-container {
+  top: 89px;
+  right: 37px;
   width: 273px;
   height: 320px;
   margin: 138px 23px 0 10px;
   border: 1px solid #382F2D;
-  float: right;
+  position: absolute;
 }
 
 .cart-subtotal-info {
@@ -3546,7 +3548,7 @@ hr {
               
               .cart-total-container {
                 width: 100vw;
-                height: 450px;
+                height: 265px;
                 margin-top: 42px;
               }
               

@@ -489,7 +489,7 @@ class App extends Component {
 
   onShippingFormSubmit(event) {
     event.preventDefault();
-    // console.log('shipping form success')
+    
     this.setState({
       shipping_form_is_valid: true
     })
