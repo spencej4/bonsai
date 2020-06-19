@@ -7,11 +7,15 @@ class Header extends Component {
     render() {
         return (
                 <div className='header'>
-                    <div>
+                    {/* <div> */}
                         <div className='logo'>
-                            <li className='logoFont'><Link to='/'><p className='header-logo'>Bonsai</p></Link></li>
+                            {/* <li className='logoFont'> */}
+                                <Link to='/'>
+                                    <h1 className='header-logo'>Bonsai</h1>
+                                </Link>
+                            {/* </li> */}
                         </div>
-                    </div>
+                    {/* </div> */}
 
                     <div className='headerLinksContainer'>
                         {/* admin is logged in */}
