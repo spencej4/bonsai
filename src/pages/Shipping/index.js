@@ -3,6 +3,10 @@ import ShippingForm from './ShippingForm'
 // import CartTotal from './CartTotal';
 
 class Shipping extends Component {
+    componentDidMount() {
+        this.props.scrollWindow();
+    }
+    
     render() {
             return (
                 <React.Fragment>

@@ -7,6 +7,10 @@ class ManageStore extends Component {
         caller: null
       }
 
+      componentDidMount() {
+          this.props.scrollWindow();
+      }
+
 
       setRedirect = (caller) => {
         if (caller === 'add'){

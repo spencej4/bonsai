@@ -629,6 +629,7 @@ class App extends Component {
           deleteProduct = {this.deleteProduct}
         />
         <Routes 
+          scrollWindow = {this.scrollWindow}
           handleSignInChange = {this.handleSignInChange}
           onRegisterSubmit = {this.onRegisterSubmit}
           registerError = {this.state.registerError}

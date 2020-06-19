@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import StoreContainer from './StoreContainer';
 
 class Store extends Component {
+  componentDidMount() {
+    this.props.scrollWindow();
+  }
+  
   render() {
     return (
       <div className='content-wrap'>

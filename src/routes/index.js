@@ -20,11 +20,17 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" 
+            render = {(props) => <Landing {...props}
+                                  scrollWindow = {this.props.scrollWindow}
+                                  />
+                      }
+            />
           <Route exact path='/store/'
             render = {(props) => <Store {...props}
                                     products = {this.props.products}
                                     viewProduct = {this.props.viewProduct}
+                                    scrollWindow = {this.props.scrollWindow}
                                   />
                       }
           />
@@ -39,6 +45,7 @@ class Routes extends Component {
                                     removeProductFromCart = {this.props.removeProductFromCart}
                                     cart = {this.props.cart}
                                     cartContains_id_array = {this.props.cartContains_id_array}
+                                    scrollWindow = {this.props.scrollWindow}
                                   />
                       }
           />
@@ -70,6 +77,7 @@ class Routes extends Component {
 
           <Route exact path='/cart/'
             render = {(props) => <Cart {...props}
+                                    scrollWindow = {this.props.scrollWindow}
                                     products = {this.props.products}
                                     viewProduct = {this.props.viewProduct}
                                     cart={this.props.cart}
@@ -85,6 +93,7 @@ class Routes extends Component {
 
           <Route path= '/shipping'
                       render = {(props) => <Shipping {...props}
+                                              scrollWindow = {this.props.scrollWindow}
                                               handleShippingFormChange = {this.props.handleShippingFormChange}
                                               onShippingFormSubmit = {this.props.onShippingFormSubmit}
                                               cartSubtotal = {this.props.cartSubtotal}
@@ -121,6 +130,7 @@ class Routes extends Component {
 
           <Route exact path='/manage-store'
             render = {(props) => <ManageStore {...props}
+                                    scrollWindow = {this.props.scrollWindow}
                                     handleAddProductChange = {this.props.handleAddProductChange}
                                     onAddProductSubmit = {this.props.onAddProductSubmit}
                                     new_product_name = {this.props.new_product_name}

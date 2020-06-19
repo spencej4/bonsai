@@ -3,6 +3,10 @@ import CartContainer from './CartContainer'
 import CartTotal from './CartTotal';
 
 class Cart extends Component {
+    componentDidMount() {
+        this.props.scrollWindow();
+    }
+    
     render() {
         if (this.props.cart.length === 0) {
             return (
@@ -13,6 +17,7 @@ class Cart extends Component {
         } else {
             return (
                 <React.Fragment>
+                    <div className='content-wrap'>
                         <div className='cart-container'>
                             <CartContainer
                                 cart = {this.props.cart}
@@ -28,6 +33,7 @@ class Cart extends Component {
                                 onCheckoutClick = {this.props.onCheckoutClick}
                             />
                         </div>
+                    </div>
                 </React.Fragment>
             )
         }

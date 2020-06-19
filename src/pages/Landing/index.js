@@ -1,26 +1,10 @@
 import React, {Component} from 'react';
 
 class Landing extends Component   {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//         isMobileDevice: false
-//     } 
-//   }
 
-//   componentWillMount() {
-//     if ((typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)){
-//       // console.log('this is a mobile device');
-//       this.setState({
-//         isMobileDevice: true
-//       })
-//     }else {
-//       // console.log('this is a desktop');
-//       this.setState({
-//         isMobileDevice: false
-//       })
-//     }
-//   }
+  componentDidMount() {
+    this.props.scrollWindow();
+  }
 
 
   render () {

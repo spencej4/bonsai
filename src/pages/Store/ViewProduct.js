@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class ViewProduct extends Component {
+    componentDidMount() {
+        this.props.scrollWindow();
+    }
+    
     render() {
             if (this.props.cartContains_id_array.includes(this.props.currentProduct_id)) {
                 return (
