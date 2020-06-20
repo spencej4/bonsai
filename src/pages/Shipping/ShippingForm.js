@@ -31,12 +31,16 @@ class ShippingForm extends Component {
   validateForm(event) {
     event.preventDefault();
 
+    this.setState({
+      formError: false
+    })
+
     let formElements = {
       shipping_email: this.props.shipping_email,
       shipping_name_first: this.props.shipping_name_first,
       shipping_name_last: this.props.shipping_name_last,
       shipping_street_address: this.props.shipping_street_address,
-      shipping_apt_unit: this.props.shipping_apt_unit,
+      // shipping_apt_unit: this.props.shipping_apt_unit,
       shipping_city: this.props.shipping_city,
       shipping_state: this.props.shipping_state,
       shipping_zipcode: this.props.shipping_zipcode
@@ -46,7 +50,7 @@ class ShippingForm extends Component {
     Object.keys(formElements).forEach(key => {  
       if (formElements[key] === null) {
         document.getElementById(key).style.border = "1px solid red"
-        document.getElementById(key).style.borderRadius = "5px";
+        document.getElementById(key).style.borderRadius = "2px";
 
         this.setState({
           formError: true
@@ -63,8 +67,13 @@ class ShippingForm extends Component {
         }
       }
       .bind(this),
-      1000
+      2000
     );
+  }
+
+  refreshFormInputs(id) {
+    document.getElementById(id).style.border = "1px solid rgb(118, 118, 118)"
+    document.getElementById(id).style.borderRadius = "2px";
   }
   
 
@@ -87,7 +96,7 @@ class ShippingForm extends Component {
                           name='shipping_email'
                           value={this.props.value}
                           placeholder='Email Address'
-                          onChange={(event) => this.props.handleShippingFormChange(event)}>
+                          onChange={(event) => {this.props.handleShippingFormChange(event); this.refreshFormInputs("shipping_email")}}>
                     </input>
                   </label>
               </div>
@@ -100,7 +109,7 @@ class ShippingForm extends Component {
                           name='shipping_name_first'
                           value={this.props.value}
                           placeholder='First Name'
-                          onChange={(event) => this.props.handleShippingFormChange(event)}>
+                          onChange={(event) => {this.props.handleShippingFormChange(event); this.refreshFormInputs("shipping_email")}}>
                     </input>
                   </label>
               </div>
@@ -113,7 +122,7 @@ class ShippingForm extends Component {
                       name='shipping_name_last'
                       value={this.props.value}
                       placeholder='Last Name'
-                      onChange={(event) => this.props.handleShippingFormChange(event)}>
+                      onChange={(event) => {this.props.handleShippingFormChange(event); this.refreshFormInputs("shipping_email")}}>
                   </input>
                 </label>
               </div>
@@ -126,7 +135,7 @@ class ShippingForm extends Component {
                         name='shipping_street_address'
                         value={this.props.value}
                         placeholder='Street Address'
-                        onChange={(event) => this.props.handleShippingFormChange(event)}>
+                        onChange={(event) => {this.props.handleShippingFormChange(event); this.refreshFormInputs("shipping_email")}}>
                     </input>
                   </label>
               </div>
@@ -139,7 +148,7 @@ class ShippingForm extends Component {
                         name='shipping_apt_unit'
                         value={this.props.value}
                         placeholder='Apt / Unit #'
-                        onChange={(event) => this.props.handleShippingFormChange(event)}>
+                        onChange={(event) => {this.props.handleShippingFormChange(event); this.refreshFormInputs("shipping_email")}}>
                     </input>
                   </label>
               </div>
@@ -152,7 +161,7 @@ class ShippingForm extends Component {
                       name='shipping_city'
                       value={this.props.value}
                       placeholder='City'
-                      onChange={(event) => this.props.handleShippingFormChange(event)}>
+                      onChange={(event) => {this.props.handleShippingFormChange(event); this.refreshFormInputs("shipping_email")}}>
                   </input>
                 </label>
               </div>
@@ -165,7 +174,7 @@ class ShippingForm extends Component {
                       name='shipping_state'
                       value={this.props.value}
                       placeholder='State'
-                      onChange={(event) => this.props.handleShippingFormChange(event)}>
+                      onChange={(event) => {this.props.handleShippingFormChange(event); this.refreshFormInputs("shipping_email")}}>
                   </input>
                 </label>
               </div>
@@ -178,7 +187,7 @@ class ShippingForm extends Component {
                       name='shipping_zipcode'
                       value={this.props.value}
                       placeholder='Zipcode'
-                      onChange={(event) => this.props.handleShippingFormChange(event)}>
+                      onChange={(event) => {this.props.handleShippingFormChange(event); this.refreshFormInputs("shipping_email")}}>
                   </input>
                 </label>
               </div>
