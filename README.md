@@ -1,8 +1,10 @@
 # About
-### Storefront for Mendiola Farms. Browse product offerings, save products to cart, process payments and 
-### shipping details.
+### Storefront for Mendiola Farms. Browse product offerings, save products to cart, process payments and shipping details.
 
+# Technologies Used:
 ### Node.js React MongoDB Mongoose JavaScript HTML5/CSS3
+
+
 
 # Local Dev Environment vs Production Environment 
 ###     In package.json
