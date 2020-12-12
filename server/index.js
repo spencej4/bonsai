@@ -17,11 +17,6 @@ app.use(cors());
 // updates deprecation, eliminates server side error message in terminal console
 mongoose.set('useCreateIndex', true);
 
-//original mLab MongoDB database
-// const dbRoute = "mongodb://Admin:Level_2020@ds255332.mlab.com:55332/heroku_f3scbbgf";
-
-
-// const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://admin:_boss_b_ambs@cluster0.tbkve.mongodb.net/mendiola-farms?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true  });
 client.connect(err => {
@@ -29,15 +24,6 @@ client.connect(err => {
   // perform actions on the collection object
   client.close();
 });
-
-// original
-//connects our back end code with the database
-// mongoose.connect(
-//     uri, {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true 
-//     },
-// );
 
 mongoose.connect(
     uri, { useNewUrlParser: true, 
@@ -88,8 +74,3 @@ app.all('', function(req, res, next) {
 app.listen(app.get('port'), function () {
     console.log('App listening on port ' + app.get('port'));
 });
-
-
-// 12/12/20
-// testing connecting to atlas via shell
-// mongo "mongodb+srv://cluster0.tbkve.mongodb.net/mendiola-farms" --username admin
