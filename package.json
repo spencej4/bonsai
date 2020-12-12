@@ -19,6 +19,7 @@
     "heroku-ssl-redirect": "0.0.4",
     "history": "^4.10.1",
     "link": "^0.1.5",
+    "mongodb": "^3.6.3",
     "mongoose": "^5.9.12",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",

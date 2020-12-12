@@ -1,4 +1,5 @@
 const express = require('express');
+const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,23 +11,41 @@ const app = express();
 // forces ssl redirect using plugin
 app.use(sslRedirect());
 
-
 app.set('port', (process.env.PORT || 4000));
 app.use(cors());
 
 // updates deprecation, eliminates server side error message in terminal console
 mongoose.set('useCreateIndex', true);
 
-//this is our MongoDB database
-const dbRoute = "mongodb://Admin:Level_2020@ds255332.mlab.com:55332/heroku_f3scbbgf";
+//original mLab MongoDB database
+// const dbRoute = "mongodb://Admin:Level_2020@ds255332.mlab.com:55332/heroku_f3scbbgf";
 
+
+// const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://admin:_boss_b_ambs@cluster0.tbkve.mongodb.net/mendiola-farms?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+// original
 //connects our back end code with the database
+// mongoose.connect(
+//     uri, {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true 
+//     },
+// );
+
 mongoose.connect(
-    dbRoute, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true 
-    },
-);
+    uri, { useNewUrlParser: true, 
+        useUnifiedTopology: true, 
+        // useFindAndModify: false
+    })
+    .then(() => console.log("Database Connected Successfully...(new mongoose connection)"))
+    .catch(err => console.log(err));
 
 // checks if connection with the database is successful
 let db = mongoose.connection;
@@ -69,3 +88,8 @@ app.all('', function(req, res, next) {
 app.listen(app.get('port'), function () {
     console.log('App listening on port ' + app.get('port'));
 });
+
+
+// 12/12/20
+// testing connecting to atlas via shell
+// mongo "mongodb+srv://cluster0.tbkve.mongodb.net/mendiola-farms" --username admin
